@@ -10,14 +10,18 @@
 <body>
     <nav>
         <input id="searchbar" type="text" placeholder="Search for a post">
+        <a href="./index.html">
         <button class="navButton">Home</button>
+        </a>
         <button class="navButton">Make a post</button>
+        <a href="./randomPost.html">
         <button class="navButton">Show me a random post</button>
+    </a>
     </nav>
     <section>
         <div class="card">
-            <form action="" name="post"></form>
-            <img src="./test.jpg" alt="" class="image">
+            <form action="" name="post">
+            <input type="image" id="imageInput">
             <div>
                 <input type="text" placeholder="Title of Post?" id="titleInput" name="post">
                 </div>
@@ -25,8 +29,9 @@
             <textarea type="text" placeholder="input text" name="post" id="textInput"></textarea>
         </div>
     </div>
-   
-        </div>
+</div>
+    <input type="submit" name="post" id="submit" value="post">
+</form>
     </section>
     <footer></footer>
     

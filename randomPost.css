@@ -36,7 +36,12 @@ section {
     margin: 30px;
     text-align: center;
 }
-
+.cardHolder {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 60px;
+    grid-row-gap: 60px;
+}
 
 footer {
     width: auto;
@@ -53,7 +58,7 @@ footer {
     padding: 20px;
     border-radius: 15px;
     width: 500px;
-    height: 600px;
+    height: 500px;
 }
 
 .cardText {
@@ -66,31 +71,13 @@ footer {
 
 .image {
     max-height: 200px;
-    margin: auto;
+
 }
 
-#titleInput {
+#comment {
     margin: 20px;
-    padding: 10px;
-}
-
-#textInput {
-    margin: 20px;
-    width: 90%;
+    width: 40%;
     height: 150px;
     padding: 10px;
-
     resize: none;
-}
-
-#imageInput {
-    padding: 100px;
-    background-color: aqua;
-    margin: auto;
-}
-
-#submit {
-    margin: 50px;
-    padding: 20px;
-    width: 100px;
 }
