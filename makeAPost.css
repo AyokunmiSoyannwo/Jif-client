@@ -28,17 +28,15 @@ nav {
 section {
     margin: 30px;
     min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .title {
     margin: 30px;
     text-align: center;
 }
-.cardHolder {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-column-gap: 60px;
-    grid-row-gap: 60px;
-}
+
 
 footer {
     width: auto;
@@ -54,6 +52,7 @@ footer {
     border: solid black 1px;
     padding: 20px;
     border-radius: 15px;
+    width: 500px;
 }
 
 .cardText {
@@ -67,4 +66,18 @@ footer {
 .image {
     max-height: 200px;
     margin: auto;
+}
+
+#titleInput {
+    margin: 20px;
+    padding: 10px;
+}
+
+#textInput {
+    margin: 20px;
+    width: 90%;
+    height: 150px;
+    padding: 10px;
+
+    resize: none;
 }
