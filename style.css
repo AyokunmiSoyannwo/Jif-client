@@ -1,0 +1,26 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    grid-template-rows: 50px auto 50px;
+}
+
+nav {
+    width: auto;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+#searchbar {
+    height: 20px;
+    margin-left: 20px;
+}
+
+.navButton {
+    margin: 20px;
+}
