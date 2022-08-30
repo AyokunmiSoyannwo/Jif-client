@@ -15,9 +15,16 @@ function renderAllCards (data) {
         link.setAttribute("href", "./specificPost.html")
         const div = document.createElement("div")
         div.setAttribute("class", "card")
-        const postID = (data[i].id).toString()
-        div.setAttribute("id", postID)
+        // const postID = (data[i].id).toString()
+        var postID = parseInt(data[i].id)
+        window.localStorage.setItem('id', postID);
+        console.log(postID)
         divs.push(div)
+        divs[i].setAttribute("id", postID)
+        divs[i].addEventListener("click", (event) => {
+            // module.exports = divs[i].getAttribute("id")
+            window.localStorage.setItem('id', event.target.id);
+        })
         const gif = (data[i].gif).toString()
         const title = data[i].title
         const text = data[i].text
@@ -48,16 +55,59 @@ function renderAllCards (data) {
         divs[i].append(reactions)
         link.append(divs[i])
         cardHolder.append(link)
+//         cards.forEach(card => card.addEventListener("click", () => {
+//             const postID = card.getAttribute("id")
+//             console.log(postID)
+//             module.exports= postID
+//         }))
 }
 }
 window.addEventListener("load", genAllCards)
 
-const cards = document.querySelectorAll(".card")
+//SPECIFIC POST
 
-cards.forEach(card => card.addEventListener("click", sendToPost))
+console.log(postID)
 
-const postID = function sendToPost (card) {
-    return card.getAttribute("id")
-}
+// window.addEventListener("load", () => {
+//     console.log(postID)
+//     fetch(`http://localhost:3000/ipj/postID`)
+//     .then(res=>res.json)
+//     .then(renderCard)
+//     console.log(res.json)
+// })
 
-module.exports= {postID, renderAllCards}
+// function renderCard () {
+//     const div = document.createElement("div")
+//         div.setAttribute("class", "card")
+//         const postID = (data[i].id).toString()
+//         div.setAttribute("id", postID)
+//         const gif = (data[i].gif).toString()
+//         const title = data[i].title
+//         const text = data[i].text
+//         // const img = document.createElement("img")
+//         // img.setAttribute("class", "image")
+//         // img.setAttribute("src" `${gif}`)
+//         const h2 = document.createElement("h2")
+//         h2.textContent = title
+//         const p = document.createElement("p")
+//         p.textContent = text
+//         const reactions = document.createElement("div")
+//         reactions.setAttribute("class", "reactions")
+//         const commentB = document.createElement("button")
+//         commentB.textContent = "Leave a comment"
+//         const e1 = document.createElement("button")
+//         e1.innerHTML = "&#128077;"
+//         const e2 = document.createElement("button")
+//         e2.innerHTML = "&#128078;"
+//         const e3 = document.createElement("button")
+//         e3.innerHTML = "&#129505;"
+//         reactions.append(commentB)
+//         reactions.append(e1)
+//         reactions.append(e2)
+//         reactions.append(e3)
+//         // divs[i].append(img)
+//         div.append(h2)
+//         div.append(p)
+//         div.append(reactions)
+//         col2.append(div)
+// }
