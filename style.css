@@ -6,19 +6,49 @@
 
 body {
     grid-template-rows: auto 100vh auto;
+    background-color: #F6f6f6;
 }
 
 nav {
     width: auto;
-    background-color: aqua;
+    background-color: #61C6D2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+}
+
+.navTop{
+    padding-top: 20px;
+    color: #4F6E7B;
+}
+
+.nav-bottom{
     display: flex;
     align-items: center;
-    height: 50px;
 }
 
 #searchbar {
     height: 20px;
     margin-left: 20px;
+    border-radius: 10px;
+    padding:12px 10px;
+    border: none;
+}
+.nav-bottom > a  :hover{
+    color: #C4A6A6;
+    text-decoration: none;
+}
+
+/* .nav-bottom > a  {
+    text-decoration: none;
+} */
+
+.nav-bottom > a >  button{
+    border-radius: 15px;
+    padding: 5px 40px;
+    color: #4F6E7B;
+    border: none;
 }
 
 .navButton {
@@ -32,6 +62,7 @@ section {
 .title {
     margin: 30px;
     text-align: center;
+    color: #4F6E7B;
 }
 .cardHolder {
     display: grid;
@@ -40,9 +71,13 @@ section {
     grid-row-gap: 60px;
 }
 
+.cardHolder > a {
+    text-decoration: none;
+}
+
 footer {
     width: auto;
-    background-color: aqua;
+    background-color: #61C6D2;
     display: flex;
     align-items: center;
     height: 50px;
@@ -55,24 +90,35 @@ footer {
     border: solid black 1px;
     padding: 20px;
     border-radius: 15px;
+    border: none;
+    box-shadow: 0px 3px 10px #4F6E7B;
 }
 
-.cardHeader {
+.card > h2 {
     padding: 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: #4F6E7B;
 }
 
 
-.cardText {
+.cardText, .card > p {
     line-height: 1.6;
+    color: gray
 }
 
 .reactions {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    border: none;
+}
+
+.reactions > button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
 }
 
 .image {
