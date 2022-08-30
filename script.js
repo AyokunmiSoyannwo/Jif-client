@@ -17,14 +17,14 @@ function renderAllCards (data) {
         div.setAttribute("class", "card")
 
         var postID = parseInt(data[i].id)
-        window.localStorage.setItem('id', postID);
+        //window.localStorage.setItem('id', postID);
         console.log(postID)
         divs.push(div)
         divs[i].setAttribute("id", postID)
         divs[i].addEventListener("click", (event) => {
-            // module.exports = divs[i].getAttribute("id")
+
             window.localStorage.setItem('id', event.target.id);
-       
+
         })
         const gif = (data[i].gif).toString()
         const title = data[i].title
@@ -56,11 +56,7 @@ function renderAllCards (data) {
         divs[i].append(reactions)
         link.append(divs[i])
         cardHolder.append(link)
-//         cards.forEach(card => card.addEventListener("click", () => {
-//             const postID = card.getAttribute("id")
-//             console.log(postID)
-//             module.exports= postID
-//         }))
+
 }
 }
 window.addEventListener("load", genAllCards)
