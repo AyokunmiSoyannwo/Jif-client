@@ -11,8 +11,12 @@ function genAllCards () {
 function renderAllCards (data) {
     let divs =[];
     for (let i=0; i < data.length ; i++) {
+        const link = document.createElement("a")
+        link.setAttribute("href", "./specificPost.html")
         const div = document.createElement("div")
         div.setAttribute("class", "card")
+        const postID = (data[i].id).toString()
+        div.setAttribute("id", postID)
         divs.push(div)
         const gif = (data[i].gif).toString()
         const title = data[i].title
@@ -42,8 +46,18 @@ function renderAllCards (data) {
         divs[i].append(h2)
         divs[i].append(p)
         divs[i].append(reactions)
-        cardHolder.append(divs[i])
+        link.append(divs[i])
+        cardHolder.append(link)
 }
+}
+window.addEventListener("load", genAllCards)
+
+const cards = document.querySelectorAll(".card")
+
+cards.forEach(card => card.addEventListener("click", sendToPost))
+
+const postID = function sendToPost (card) {
+    return card.getAttribute("id")
 }
 
-body.addEventListener("click", genAllCards)
+module.exports= {postID, renderAllCards}
