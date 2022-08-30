@@ -34,6 +34,14 @@ function renderCard (data) {
         e2.innerHTML = "&#128078;"
         const e3 = document.createElement("button")
         e3.innerHTML = "&#129505;"
+        const comments = data.comment;
+        console.log(comments)
+        comments.forEach((x) => {
+            const comment = document.createElement("p")
+            const col1 = document.querySelector(".col1")
+            comment.textContent = x
+            col1.append(comment)
+        })
         reactions.append(commentB)
         reactions.append(e1)
         reactions.append(e2)
