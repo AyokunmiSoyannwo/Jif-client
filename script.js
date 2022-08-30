@@ -47,4 +47,3 @@ function renderAllCards (data) {
 }
 
 body.addEventListener("click", genAllCards)
-

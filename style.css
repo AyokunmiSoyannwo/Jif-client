@@ -50,21 +50,33 @@ footer {
 
 .card {
     display: grid;
-    grid-template-rows: auto 200px 50px;
+    grid-template-rows: 30px 200px 150px 50px;
+    grid-row-gap: 20px;
     border: solid black 1px;
     padding: 20px;
     border-radius: 15px;
 }
+
+.cardHeader {
+    padding: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 
 .cardText {
     line-height: 1.6;
 }
 
 .reactions {
-    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .image {
     max-height: 200px;
     margin: auto;
+    background-color: aqua;
 }
