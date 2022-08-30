@@ -6,8 +6,7 @@
   "scripts": {
     "test": "jest --watchAll",
     "cov": "jest --coverage",
-    "bundle": "watchify post.js -o bundle.js",
-    "bundle2": "watchify script.js -o bundle2.js"
+    "dev": "python -m http.server"
   },
   "repository": {
     "type": "git",

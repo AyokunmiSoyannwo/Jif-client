@@ -50,8 +50,12 @@ describe("webpage", () => {
 
         test("it has a paragraph", () => {
             let cardText = document.getElementsByClassName("cardText")[1]
-            console.log(cardText.innerHTML)
             expect(cardText.innerHTML).toBeTruthy
+        })
+
+        test("it has 3 reaction buttons", () => {
+            let cardText = document.getElementsByClassName("reactions")[1]
+            expect(cardText.getElementsByTagName("button").length).toBe(3)
         })
     })
 })

@@ -1,21 +1,22 @@
-const postID = require("./script")
-const col2 = document.querySelector(".col2")
-
-window.addEventListener("load", () => {
-    console.log(postID)
-    fetch(`http://localhost:3000/ipj/3`)
-    .then(res=>res.json)
+window.addEventListener("load", (req,res) => {
+    ID = window.localStorage.getItem('id')
+    fetch(`http://localhost:3000/ipj/${ID}`)
+    .then(res => res.json())
     .then(renderCard)
+
 })
 
-function renderCard () {
+
+
+function renderCard (data) {
+    const col2 = document.querySelector(".col2")
     const div = document.createElement("div")
         div.setAttribute("class", "card")
-        const postID = (data[i].id).toString()
+        const postID = (data.id).toString()
         div.setAttribute("id", postID)
-        const gif = (data[i].gif).toString()
-        const title = data[i].title
-        const text = data[i].text
+        const gif = (data.gif).toString()
+        const title = data.title
+        const text = data.text
         // const img = document.createElement("img")
         // img.setAttribute("class", "image")
         // img.setAttribute("src" `${gif}`)
@@ -43,3 +44,8 @@ function renderCard () {
         div.append(reactions)
         col2.append(div)
 }
+
+
+
+console.log(window.localStorage.getItem('id'))
+

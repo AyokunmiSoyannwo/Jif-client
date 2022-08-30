@@ -15,11 +15,16 @@ function renderAllCards (data) {
         link.setAttribute("href", "./specificPost.html")
         const div = document.createElement("div")
         div.setAttribute("class", "card")
-        const postID = (data[i].id).toString()
+
+        var postID = parseInt(data[i].id)
+        window.localStorage.setItem('id', postID);
+        console.log(postID)
         divs.push(div)
         divs[i].setAttribute("id", postID)
-        divs[i].addEventListener("click", () => {
-            module.exports = divs[i].getAttribute("id")
+        divs[i].addEventListener("click", (event) => {
+            // module.exports = divs[i].getAttribute("id")
+            window.localStorage.setItem('id', event.target.id);
+       
         })
         const gif = (data[i].gif).toString()
         const title = data[i].title
@@ -59,7 +64,4 @@ function renderAllCards (data) {
 }
 }
 window.addEventListener("load", genAllCards)
-
-
-
 
