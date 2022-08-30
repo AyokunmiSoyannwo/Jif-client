@@ -1,17 +1,12 @@
-// const postID = require("./bundle")
-
-
 window.addEventListener("load", (req,res) => {
     ID = window.localStorage.getItem('id')
     fetch(`http://localhost:3000/ipj/${ID}`)
     .then(res => res.json())
     .then(renderCard)
-    // console.log(res.json)
+
 })
 
-// function displayResults(response){
-//     console.log(response.title)
-// }
+
 
 function renderCard (data) {
     const col2 = document.querySelector(".col2")
@@ -51,4 +46,6 @@ function renderCard (data) {
 }
 
 
+
 console.log(window.localStorage.getItem('id'))
+
