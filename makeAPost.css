@@ -6,19 +6,45 @@
 
 body {
     grid-template-rows: auto 100vh auto;
+    background-color: #F6f6f6;
 }
 
 nav {
     width: auto;
-    background-color: aqua;
+    background-color: #61C6D2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+}
+
+.navTop{
+    padding-top: 20px;
+    color: #4F6E7B;
+}
+
+.nav-bottom{
     display: flex;
     align-items: center;
-    height: 50px;
 }
 
 #searchbar {
     height: 20px;
     margin-left: 20px;
+    border-radius: 10px;
+    padding:12px 10px;
+    border: none;
+}
+.nav-bottom > a  :hover{
+    color: #C4A6A6;
+    text-decoration: none;
+}
+
+.nav-bottom > a >  button{
+    border-radius: 15px;
+    padding: 5px 40px;
+    color: #4F6E7B;
+    border: none;
 }
 
 .navButton {
@@ -35,12 +61,13 @@ section {
 .title {
     margin: 30px;
     text-align: center;
+    color: #4F6E7B;
 }
 
 
 footer {
     width: auto;
-    background-color: aqua;
+    background-color: #61C6D2;;
     display: flex;
     align-items: center;
     height: 50px;
@@ -54,24 +81,14 @@ footer {
     border-radius: 15px;
     width: 500px;
     height: 600px;
-}
-
-.cardText {
-    line-height: 1.6;
-}
-
-.reactions {
-    background-color: aqua;
-}
-
-.image {
-    max-height: 200px;
-    margin: auto;
+    box-shadow: 0px 3px 10px #4F6E7B;
 }
 
 #titleInput {
     margin: 20px;
     padding: 10px;
+    border-radius: 10px;
+    border: 1px lightgray solid;
 }
 
 #textInput {
@@ -80,6 +97,8 @@ footer {
     height: 150px;
     padding: 10px;
     resize: none;
+    border: 1px lightgray solid;
+    border-radius: 10px;
 }
 
 #imageInput {
@@ -92,4 +111,6 @@ footer {
     margin: 50px;
     padding: 20px;
     width: 100px;
+    border: 1px lightgray solid;
+    border-radius: 10px;
 }
