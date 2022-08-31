@@ -10,6 +10,7 @@ function genAllCards () {
 
 function renderAllCards (data) {
     let divs =[];
+    console.log(data)
     for (let i=0; i < data.length ; i++) {
         const link = document.createElement("a")
         link.setAttribute("href", "./specificPost.html")
@@ -26,7 +27,7 @@ function renderAllCards (data) {
             window.localStorage.setItem('id', event.target.id);
 
         })
-        const gif = (data[i].gif).toString()
+        // const gif = (data[i].gif).toString()
         const title = data[i].title
         const text = data[i].text
         // const img = document.createElement("img")
