@@ -1,5 +1,6 @@
 const body = document.querySelector("body")
 const cardHolder = document.querySelector(".cardHolder")
+const searchbar = document.querySelector("#searchbar")
 
 function genAllCards () {
     console.log("I am running")
@@ -26,15 +27,17 @@ function renderAllCards (data) {
             window.localStorage.setItem('id', event.target.id);
 
         })
-        const gif = (data[i].gif).toString()
+        // const gif = (data[i].gif).toString()
         const title = data[i].title
         const text = data[i].text
         // const img = document.createElement("img")
         // img.setAttribute("class", "image")
         // img.setAttribute("src" `${gif}`)
         const h2 = document.createElement("h2")
+        h2.setAttribute("id",postID)
         h2.textContent = title
         const p = document.createElement("p")
+        p.setAttribute("id",postID)
         p.textContent = text
         const reactions = document.createElement("div")
         reactions.setAttribute("class", "reactions")
@@ -60,4 +63,5 @@ function renderAllCards (data) {
 }
 }
 window.addEventListener("load", genAllCards)
+
 

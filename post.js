@@ -145,6 +145,7 @@ function addNewComment(data){
     col1.append(comment)
 }
 
+
 // Add an emoji
 const thumbsup = document.querySelector("#thumbsup")
 thumbsup.addEventListener("click", postThumbsUpEmoji)
