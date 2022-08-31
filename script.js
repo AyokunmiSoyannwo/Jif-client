@@ -29,12 +29,12 @@ function renderAllCards (data) {
             window.localStorage.setItem('id', event.target.id);
 
         })
-        // const gif = (data[i].gif).toString()
+        const gif = data[i].gif
         const title = data[i].title
         const text = data[i].text
-        // const img = document.createElement("img")
-        // img.setAttribute("class", "image")
-        // img.setAttribute("src" `${gif}`)
+        const img = document.createElement("img")
+        img.setAttribute("class", "image")
+        img.src = gif 
         const h2 = document.createElement("h2")
         h2.setAttribute("id",postID)
         h2.textContent = title
@@ -43,8 +43,8 @@ function renderAllCards (data) {
         p.textContent = text
         const reactions = document.createElement("div")
         reactions.setAttribute("class", "reactions")
-
         divs[i].append(h2)
+        divs[i].append(img)
         divs[i].append(p)
         link.append(divs[i])
         cardHolder.append(link)
