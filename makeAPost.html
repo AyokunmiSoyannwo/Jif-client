@@ -28,13 +28,17 @@
     </nav>
     <section>
         <div class="card">
-            <form action="" name="post" id = "new-journal-form">
+            <form action="index.html" name="post" id = "new-journal-form">
             <input type="image" id="imageInput">
             <div>
+                <input type="text" placeholder="Title of Post?" id="titleInput" name="post" required>
+                </div>
+                <div>
+            <textarea type="text" placeholder="input text" name="post" id="textInput" required></textarea>
                 <input type="text" placeholder="Title of Post?" id="titleInput" maxlength="30" name="post">
                 </div>
                 <div>
-            <textarea type="text" placeholder="input text" name="post" maxlength="300" id="textInput"></textarea>
+            <textarea type="text" placeholder="input text" name="post" maxlength="300" id="textInput" required></textarea>
         </div>
     </div>
 </div>
