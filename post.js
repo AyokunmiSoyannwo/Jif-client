@@ -81,18 +81,22 @@ function postComment(e){
         id: window.localStorage.getItem('id'),
         comment: e.target.comment.value
     };
+   
     console.log(newComment)
     const options = { 
         method: 'POST',
         body:JSON.stringify(newComment),
         headers: {
             // Accept: 'application.json',
-            // 'Content-Type': 'application/json'
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/json',
+            // 'Content-Length': '34'
+            // 'Content-Type': 'application/x-www-form-urlencoded'
         }
+        
     };
-    console.log(options.body)
-    fetch('http://localhost:3000/comment',options)
+    console.log(options.body.length)
+    console.log('this is options.body:' + options.body)
+    fetch( 'http://localhost:3000/comment',options)
         .then(r => r.text())
         .then(addNewComment)
         .catch(console.warn)
@@ -105,3 +109,33 @@ function addNewComment(data){
     comment.textContent = data
     col1.append(comment)
 }
+
+// Add an emoji
+
+function postComment(e){
+    e.preventDefault();
+
+    const newComment = {
+        id: window.localStorage.getItem('id'),
+        comment: e.target.comment.value
+    };
+   
+    console.log(newComment)
+    const options = { 
+        method: 'POST',
+        body:JSON.stringify(newComment),
+        headers: {
+            // Accept: 'application.json',
+            'Content-Type': 'application/json',
+            // 'Content-Length': '34'
+            // 'Content-Type': 'application/x-www-form-urlencoded'
+        }
+        
+    };
+    console.log(options.body.length)
+    console.log('this is options.body:' + options.body)
+    fetch( 'http://localhost:3000/comment',options)
+        .then(r => r.text())
+        .then(addNewComment)
+        .catch(console.warn)
+};
