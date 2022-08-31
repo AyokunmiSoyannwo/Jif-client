@@ -43,7 +43,6 @@ function renderAllCards (data) {
         p.textContent = text
         const reactions = document.createElement("div")
         reactions.setAttribute("class", "reactions")
-
         divs[i].append(h2)
         divs[i].append(img)
         divs[i].append(p)
