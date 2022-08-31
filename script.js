@@ -33,8 +33,10 @@ function renderAllCards (data) {
         // img.setAttribute("class", "image")
         // img.setAttribute("src" `${gif}`)
         const h2 = document.createElement("h2")
+        h2.setAttribute("id",postID)
         h2.textContent = title
         const p = document.createElement("p")
+        p.setAttribute("id",postID)
         p.textContent = text
         const reactions = document.createElement("div")
         reactions.setAttribute("class", "reactions")
