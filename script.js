@@ -1,5 +1,6 @@
 const body = document.querySelector("body")
 const cardHolder = document.querySelector(".cardHolder")
+const searchbar = document.querySelector("#searchbar")
 
 function genAllCards () {
     console.log("I am running")
@@ -26,7 +27,7 @@ function renderAllCards (data) {
             window.localStorage.setItem('id', event.target.id);
 
         })
-        const gif = (data[i].gif).toString()
+        // const gif = (data[i].gif).toString()
         const title = data[i].title
         const text = data[i].text
         // const img = document.createElement("img")
@@ -62,4 +63,28 @@ function renderAllCards (data) {
 }
 }
 window.addEventListener("load", genAllCards)
+
+searchbar.addEventListener("search", searchFunc )
+
+function searchFunc () {
+    console.log("searching")
+    fetch("http://localhost:3000/ipj")
+    .then(res => res.json())
+    .then(check)
+}
+
+function removeAllCards () {
+    const cards = document.querySelectorAll(".card")
+    cards.forEach(card => card.remove())
+}
+
+
+function check (data) {
+    if (searchbar.value ) {
+    const results = data.filter((x) => (x.title.toLowerCase()).includes(searchbar.value.toLowerCase()))
+    removeAllCards(); 
+    renderAllCards(results)
+    } else {
+        alert("please search something")
+    }}
 
