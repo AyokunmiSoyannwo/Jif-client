@@ -45,15 +45,15 @@ function renderAllCards (data) {
         const p = document.createElement("p")
         p.setAttribute("id",postID)
         p.textContent = text
-        const reactions = document.createElement("div")
-        reactions.setAttribute("class", "reactions")
-        reactionarr.push(reactions)
-        reactionarr[i].setAttribute("id", postID)
+        // const reactions = document.createElement("div")
+        // reactions.setAttribute("class", "reactions")
+        // reactionarr.push(reactions)
+        // reactionarr[i].setAttribute("id", postID)
 
         divs[i].append(h2)
             divs[i].append(imagearr[i])
             divs[i].append(p)
-            divs[i].append(reactionarr[i])
+            // divs[i].append(reactionarr[i])
             link.append(divs[i])
             cardHolder.append(link)
 
@@ -73,7 +73,11 @@ function renderAllCards (data) {
                 return x === "&#129505;"
             })
             
-            
+            const reactions = document.createElement("div")
+            reactions.setAttribute("class", "reactions")
+            reactionarr.push(reactions)
+            reactionarr[i].setAttribute("id", postID)
+
             const e1Num = document.createElement('p')
             const e2Num = document.createElement('p')
             const e3Num = document.createElement('p')
@@ -101,8 +105,15 @@ function renderAllCards (data) {
             reactions.append(e2)
             reactions.append(e3Num)
             reactions.append(e3)
-            divs[i].append(reactions)
+            divs[i].append(reactionarr[i])
+           
         } else {
+
+            const reactions = document.createElement("div")
+            reactions.setAttribute("class", "reactions")
+            reactionarr.push(reactions)
+            reactionarr[i].setAttribute("id", postID)
+
             const e1Num = document.createElement('p')
             const e2Num = document.createElement('p')
             const e3Num = document.createElement('p')
@@ -128,7 +139,7 @@ function renderAllCards (data) {
             reactions.append(e2)
             reactions.append(e3Num)
             reactions.append(e3)
-            divs[i].append(reactions)
+            divs[i].append(reactionarr[i])
         }
         // divs[i].append(img)
         
