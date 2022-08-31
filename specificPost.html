@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IPJ | Random Post</title>
     <link rel="stylesheet" href="./specificPost.css">
-    <script src="./post.js"></script>
+    <script defer src="./post.js"></script>
 
 </head>
 <body>
@@ -29,14 +29,24 @@
     </nav>
     <section>
         <div class="cardHolder">
-        <div class="col1">&nbsp;</div>
+        <div class="col1">
+            <h2>Comments</h2>
+
+        </div>
         <div class="col2">
             
-            <textarea type="text" placeholder="Leave a comment..." name="post" id="comment"></textarea>
-        </div>
-        <div class="col3">&nbsp;</div>
+    </div>
+    <div class="col3"> 
+        <form action="" id = "commentForm">
+        <textarea type="text" placeholder="Leave a comment..." name="post" id="comment" hidden="hidden"></textarea>
+        <input type="submit" hidden  id="postBtn" >
+        </form>
+        <!-- <button id ="postBtn" hidden> Add Comment</button> -->
+        <button id="btncomment">Leave a comment</button>
+    </div>
+</div>
+        </section>
 
-    </section>
     <footer></footer>
     
 </body>
