@@ -105,3 +105,29 @@ function addNewComment(data){
     comment.textContent = data
     col1.append(comment)
 }
+
+const searchbar = document.querySelector("#searchbar")
+
+searchbar.addEventListener("search", searchFunc )
+
+function searchFunc () {
+    console.log("searching")
+    fetch("http://localhost:3000/ipj")
+    .then(res => res.json())
+    .then(check)
+}
+
+function removeAllCards () {
+    const cards = document.querySelectorAll(".card")
+    cards.forEach(card => card.remove())
+}
+
+
+function check (data) {
+    if (searchbar.value ) {
+    const results = data.filter((x) => (x.title.toLowerCase()).includes(searchbar.value.toLowerCase()))
+    removeAllCards(); 
+    renderAllCards(results)
+    } else {
+        alert("please search something")
+    }}
