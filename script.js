@@ -11,6 +11,7 @@ function genAllCards () {
 
 function renderAllCards (data) {
     let divs =[];
+    console.log(data)
     for (let i=0; i < data.length ; i++) {
         const link = document.createElement("a")
         link.setAttribute("href", "./specificPost.html")
