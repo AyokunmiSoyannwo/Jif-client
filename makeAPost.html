@@ -10,27 +10,36 @@
 </head>
 <body>
     <nav>
-        <input id="searchbar" type="text" placeholder="Search for a post">
-        <a href="./index.html">
-        <button class="navButton">Home</button>
-        </a>
-        <button class="navButton">Make a post</button>
-        <a href="./randomPost.html">
-        <button class="navButton">Show me a random post</button>
-    </a>
-    <h2 >It's Pronounced Jif</h2>
+        <div class="navTop">
+            <h2 >It's Pronounced Jif</h2>
+        </div>
+        <div class="nav-bottom">
+            <a href="./index.html">
+                <button class="navButton">Home</button>
+            </a>
+            <a href="./makeAPost.html">
+                <button class="navButton">Make a post</button>
+            </a>
+            <a href="./randomPost.html">
+                <button class="navButton">Show me a random post</button>
+            </a>
+            <form action="./searchResults.html" method="GET">
+                <input id="searchbar" type="search" placeholder="Search for a post"  name="search_word">
+            </form>
+        </div>
     </nav>
     <section>
         <div class="card">
             <form action="index.html" name="post" id = "new-journal-form">
             <input type="image" id="imageInput">
             <div>
-                <input type="text" placeholder="Title of Post?" id="titleInput" name="post" required>
+                <input type="text" placeholder="Title of Post?" id="titleInput" name="post" maxlength="30" required>
                 </div>
                 <div>
-            <textarea type="text" placeholder="input text" name="post" id="textInput" required></textarea>
+            <textarea type="text" placeholder="input text" name="post" id="textInput" maxlength="300" required></textarea>
+
+                </div>
         </div>
-    </div>
 </div>
     <input type="submit" name="post" id="submit" value="post">
 </form>

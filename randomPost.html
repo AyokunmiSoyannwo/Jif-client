@@ -5,11 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IPJ | Random Post</title>
+    <script defer src="./random.js"></script>
     <link rel="stylesheet" href="./randomPost.css">
 </head>
 <body>
     <nav>
-        <input id="searchbar" type="text" placeholder="Search for a post">
+        <form action="./searchResults.html" method="GET">
+            <input id="searchbar" type="search" placeholder="Search for a post"  name="search_word">
+        </form>
         <a href="./index.html">
         <button class="navButton">Home</button>
         </a>
@@ -20,23 +23,15 @@
         <h2 >It's Pronounced Jif</h2>
     </nav>
     <section>
-        <div class="card">
-            <img src="./test.jpg" alt="" class="image">
-            <div class="cardText">
-                <h2>title</h2>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab autem impedit corrupti hic nemo non debitis maxime harum? Sequi saepe distinctio nostrum ipsam in dignissimos! Labore exercitationem, quisquam asperiores necessitatibus ab, illum eveniet consequuntur aliquid esse similique sapiente cum non
-        </p>
-    </div>
-    <div class="reactions">
-        <button>Emoji 1</button>
-        <button>Emoji 2</button>
-        <button>Emoji 3</button>
-        
-    </div>   
+        <div class="cardHolder">
+        <div class="col1">&nbsp;</div>
+        <div class="col2">
+            
+            <textarea type="text" placeholder="Leave a comment..." name="post" id="comment"></textarea>
         </div>
-        <textarea type="text" placeholder="Leave a comment..." name="post" id="comment"></textarea>
-        </section>
+        <div class="col3">&nbsp;</div>
+
+    </section>
     <footer></footer>
     
 </body>
