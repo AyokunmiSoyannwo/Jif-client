@@ -1,3 +1,8 @@
+const commentBtn = document.querySelector("#btncomment")
+const addComment = document.querySelector("#postBtn")
+const commentTextbox = document.querySelector("#comment")
+const commentForm = document.querySelector("#commentForm")
+
 window.addEventListener("load", (req,res) => {
     ID = window.localStorage.getItem('id')
     fetch(`http://localhost:3000/ipj/${ID}`)
@@ -26,15 +31,25 @@ function renderCard (data) {
         p.textContent = text
         const reactions = document.createElement("div")
         reactions.setAttribute("class", "reactions")
-        const commentB = document.createElement("button")
-        commentB.textContent = "Leave a comment"
+        // const commentB = document.createElement("button")
+        // commentB.textContent = "Leave a comment"
+        // commentB.setAttribute("id","comment-button")
         const e1 = document.createElement("button")
         e1.innerHTML = "&#128077;"
         const e2 = document.createElement("button")
         e2.innerHTML = "&#128078;"
         const e3 = document.createElement("button")
         e3.innerHTML = "&#129505;"
-        reactions.append(commentB)
+        const comments = data.comment;
+        console.log(comments)
+        comments.forEach((x) => {
+            const comment = document.createElement("p")
+            comment.setAttribute("class", "comments")
+            const col1 = document.querySelector(".col1")
+            comment.textContent = x
+            col1.append(comment)
+        })
+        // reactions.append(commentB)
         reactions.append(e1)
         reactions.append(e2)
         reactions.append(e3)
@@ -45,7 +60,48 @@ function renderCard (data) {
         col2.append(div)
 }
 
+function makeCommentAppear(){
+    commentTextbox.removeAttribute("hidden")
+    addComment.removeAttribute("hidden")
+    
+    commentBtn.setAttribute("hidden", "hidden")
+}
+
+commentBtn.addEventListener("click", makeCommentAppear)
 
 
-console.log(window.localStorage.getItem('id'))
+// console.log(window.localStorage.getItem('id'))
 
+commentForm.addEventListener('submit', postComment)
+
+function postComment(e){
+    e.preventDefault();
+
+    const newComment = {
+        id: window.localStorage.getItem('id'),
+        comment: e.target.comment.value
+    };
+    console.log(newComment)
+    const options = { 
+        method: 'POST',
+        body:JSON.stringify(newComment),
+        headers: {
+            // Accept: 'application.json',
+            // 'Content-Type': 'application/json'
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+    };
+    console.log(options.body)
+    fetch('http://localhost:3000/comment',options)
+        .then(r => r.text())
+        .then(addNewComment)
+        .catch(console.warn)
+};
+
+function addNewComment(data){
+    const comment = document.createElement("p")
+    comment.setAttribute("class", "comments")
+    const col1 = document.querySelector(".col1")
+    comment.textContent = data
+    col1.append(comment)
+}
