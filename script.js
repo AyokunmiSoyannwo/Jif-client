@@ -4,13 +4,15 @@ const searchbar = document.querySelector("#searchbar")
 
 function genAllCards () {
     console.log("I am running")
-        fetch("http://localhost:3000/ipj")
-        .then(res => res.json())
-        .then(renderAllCards)
-    }
+    fetch("http://localhost:3000/ipj")
+    .then(res => res.json())
+    .then(renderAllCards)
+}
 
 function renderAllCards (data) {
     let divs =[];
+    let reactionarr = []
+    let imagearr = []
     console.log(data.length)
     for (let i=0; i < data.length ; i++) {
         console.log('this is i:'+ i + 'This is id:'+ data[i].id)
@@ -35,6 +37,8 @@ function renderAllCards (data) {
         const img = document.createElement("img")
         img.setAttribute("class", "image")
         img.src = gif 
+        imagearr.push(img)
+        imagearr[i].setAttribute("id", postID)
         const h2 = document.createElement("h2")
         h2.setAttribute("id",postID)
         h2.textContent = title
@@ -43,11 +47,15 @@ function renderAllCards (data) {
         p.textContent = text
         const reactions = document.createElement("div")
         reactions.setAttribute("class", "reactions")
+        reactionarr.push(reactions)
+        reactionarr[i].setAttribute("id", postID)
+
         divs[i].append(h2)
-        divs[i].append(img)
-        divs[i].append(p)
-        link.append(divs[i])
-        cardHolder.append(link)
+            divs[i].append(imagearr[i])
+            divs[i].append(p)
+            divs[i].append(reactionarr[i])
+            link.append(divs[i])
+            cardHolder.append(link)
 
         // emoji stuff
         
@@ -77,14 +85,15 @@ function renderAllCards (data) {
             e2Num.textContent = e2Counter.length;
             e3Num.textContent = e3Counter.length;
 
-            const commentB = document.createElement("button")
-            commentB.textContent = "Leave a comment"
             const e1 = document.createElement("button")
             e1.innerHTML = "&#128077;"
             const e2 = document.createElement("button")
             e2.innerHTML = "&#128078;"
             const e3 = document.createElement("button")
             e3.innerHTML = "&#129505;"
+            e1.setAttribute("class", "emojibutton")
+            e2.setAttribute("class", "emojibutton")
+            e3.setAttribute("class", "emojibutton")
             
             reactions.append(e1Num)
             reactions.append(e1)
