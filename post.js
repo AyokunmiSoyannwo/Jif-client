@@ -2,6 +2,13 @@ const commentBtn = document.querySelector("#btncomment")
 const addComment = document.querySelector("#postBtn")
 const commentTextbox = document.querySelector("#comment")
 const commentForm = document.querySelector("#commentForm")
+const e1Num = document.querySelector('#thumbupCounter')
+const e2Num = document.querySelector('#thumbdownCounter')
+const e3Num = document.querySelector('#heartCounter')
+// const thumbsdown = document.querySelector("thumbsdown")
+// const heart = document.querySelector("heart")
+
+
 
 window.addEventListener("load", (req,res) => {
     ID = window.localStorage.getItem('id')
@@ -31,17 +38,42 @@ function renderCard (data) {
         p.textContent = text
         const reactions = document.createElement("div")
         reactions.setAttribute("class", "reactions")
-        // const commentB = document.createElement("button")
-        // commentB.textContent = "Leave a comment"
-        // commentB.setAttribute("id","comment-button")
-        const e1 = document.createElement("button")
-        e1.innerHTML = "&#128077;"
-        const e2 = document.createElement("button")
-        e2.innerHTML = "&#128078;"
-        const e3 = document.createElement("button")
-        e3.innerHTML = "&#129505;"
+
+        const emojis = data.emoji;
+      
+        const e1Counter = emojis.filter((x) => {
+            return x === "&#128077;"
+        })
+        const e2Counter = emojis.filter((x) => {
+            return x === "&#128078;"
+        })
+        const e3Counter = emojis.filter((x) => {
+            return x === "&#129505;"
+        })
+
+        
+        
+
+        
+        
+        
+        
+
+        e1Num.textContent = e1Counter.length;
+        e2Num.textContent = e2Counter.length;
+        e3Num.textContent = e3Counter.length;
+       
+        // const e1 = document.createElement("button")
+        // e1.innerHTML = "&#128077;"
+        // const e2 = document.createElement("button")
+        // e2.innerHTML = "&#128078;"
+        // const e3 = document.createElement("button")
+        // e3.innerHTML = "&#129505;"
+        // e1.setAttribute("id", "thumbsup")
+        // e2.setAttribute("id", "thumbsdown")
+        // e3.setAttribute("id", "heart")
         const comments = data.comment;
-        console.log(comments)
+        
         comments.forEach((x) => {
             const comment = document.createElement("p")
             comment.setAttribute("class", "comments")
@@ -50,9 +82,12 @@ function renderCard (data) {
             col1.append(comment)
         })
         // reactions.append(commentB)
-        reactions.append(e1)
-        reactions.append(e2)
-        reactions.append(e3)
+        // reactions.append(e1Num)
+        // reactions.append(e1)
+        // reactions.append(e2Num)
+        // reactions.append(e2)
+        // reactions.append(e3Num)
+        // reactions.append(e3)
         // divs[i].append(img)
         div.append(h2)
         div.append(p)
@@ -79,7 +114,7 @@ function postComment(e){
 
     const newComment = {
         id: window.localStorage.getItem('id'),
-        comment: e.target.comment.value
+        comment: e.target.comment.textContent
     };
    
     console.log(newComment)
@@ -112,19 +147,25 @@ function addNewComment(data){
 
 
 // Add an emoji
+const thumbsup = document.querySelector("#thumbsup")
+thumbsup.addEventListener("click", postThumbsUpEmoji)
+const thumbsdown = document.querySelector("#thumbsdown")
+thumbsdown.addEventListener("click", postThumbsDownEmoji)
+const heart = document.querySelector("#heart")
+heart.addEventListener("click", postHeartEmoji)
 
-function postComment(e){
-    e.preventDefault();
+function postThumbsUpEmoji(e){
+    // e.preventDefault();
+    console.log('I am running')
 
-    const newComment = {
+    const newEmoji = {
         id: window.localStorage.getItem('id'),
-        comment: e.target.comment.value
+        emoji: '&#128077;'
     };
    
-    console.log(newComment)
     const options = { 
         method: 'POST',
-        body:JSON.stringify(newComment),
+        body:JSON.stringify(newEmoji),
         headers: {
             // Accept: 'application.json',
             'Content-Type': 'application/json',
@@ -133,11 +174,68 @@ function postComment(e){
         }
         
     };
-    console.log(options.body.length)
     console.log('this is options.body:' + options.body)
-    fetch( 'http://localhost:3000/comment',options)
+    fetch( 'http://localhost:3000/emoji',options)
         .then(r => r.text())
-        .then(addNewComment)
+        .then(emojiReact)
         .catch(console.warn)
 };
 
+function postThumbsDownEmoji(e){
+    // e.preventDefault();
+    console.log('I am running')
+
+    const newEmoji = {
+        id: window.localStorage.getItem('id'),
+        emoji: '&#128078;'
+    };
+   
+    const options = { 
+        method: 'POST',
+        body:JSON.stringify(newEmoji),
+        headers: {
+            // Accept: 'application.json',
+            'Content-Type': 'application/json',
+            // 'Content-Length': '34'
+            // 'Content-Type': 'application/x-www-form-urlencoded'
+        }
+        
+    };
+    console.log('this is options.body:' + options.body)
+    fetch( 'http://localhost:3000/emoji',options)
+        .then(r => r.text())
+        .then(emojiReact)
+        .catch(console.warn)
+};
+
+function postHeartEmoji(e){
+    // e.preventDefault();
+    console.log('I am running')
+
+    const newEmoji = {
+        id: window.localStorage.getItem('id'),
+        emoji: '&#129505;'
+    };
+   
+    const options = { 
+        method: 'POST',
+        body:JSON.stringify(newEmoji),
+        headers: {
+            // Accept: 'application.json',
+            'Content-Type': 'application/json',
+            // 'Content-Length': '34'
+            // 'Content-Type': 'application/x-www-form-urlencoded'
+        }
+        
+    };
+    console.log('this is options.body:' + options.body)
+    fetch( 'http://localhost:3000/emoji',options)
+        .then(r => r.text())
+        .then(emojiReact)
+        .catch(console.warn)
+};
+
+function emojiReact() {
+    
+    window.location.href = './specificPost.html'
+}
