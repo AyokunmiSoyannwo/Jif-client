@@ -118,6 +118,7 @@ footer {
     border: none;
     padding: 10px 20px;
     border-radius: 20px;
+    pointer-events: none;
 }
 
 .image {
@@ -125,3 +126,4 @@ footer {
     margin: auto;
     background-color: aqua;
 }
+
