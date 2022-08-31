@@ -26,12 +26,12 @@ function renderCard (data) {
         div.setAttribute("class", "card")
         const postID = (data.id).toString()
         div.setAttribute("id", postID)
-        const gif = (data.gif).toString()
+        const gif = data.gif
         const title = data.title
         const text = data.text
-        // const img = document.createElement("img")
-        // img.setAttribute("class", "image")
-        // img.setAttribute("src" `${gif}`)
+        const img = document.createElement("img")
+        img.setAttribute("class", "image")
+        img.src = gif
         const h2 = document.createElement("h2")
         h2.textContent = title
         const p = document.createElement("p")
@@ -88,8 +88,8 @@ function renderCard (data) {
         // reactions.append(e2)
         // reactions.append(e3Num)
         // reactions.append(e3)
-        // divs[i].append(img)
         div.append(h2)
+        div.append(img)
         div.append(p)
         div.append(reactions)
         col2.append(div)
