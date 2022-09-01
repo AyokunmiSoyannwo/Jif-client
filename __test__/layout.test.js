@@ -6,10 +6,14 @@ const fs = require("fs");
 const path = require("path");
 const html = fs.readFileSync(path.resolve(__dirname, "../index.html"), "utf-8") 
 
-describe("webpage", () => {
+describe("home page", () => {
     beforeEach(() => {
         document.documentElement.innerHTML = html.toString();  //beforeEach can be used if an action needs to be repeated before each test
     })
+    it('h1 shows "Featured" when website loads', () => {
+        const h1 = document.querySelector('h1');
+        expect(h1.innerHTML).toBe("Welcome to Jif")
+      })
 
     describe("Nav bar", () => {  //usually the first test is to that the object exists, i can use expect(object).toBeTruthy(); to do this
 
@@ -57,5 +61,18 @@ describe("webpage", () => {
             let cardText = document.getElementsByClassName("reactions")[1]
             expect(cardText.getElementsByTagName("button").length).toBe(3)
         })
+    })
+})
+
+describe('Specific Post.html', () => {
+    beforeEach(() => {
+        document.documentElement.innerHTML = html.toString();
+    })
+    test('card loads when window is loaded', () => {
+        const card = document.querySelector(".card")
+        // const commentTextbox = document.querySelector("#comment")
+        window.dispatchEvent(new Event('load'))
+        const image = document.querySelector("img")
+        expect(image).toBe('true')
     })
 })

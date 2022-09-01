@@ -5,13 +5,13 @@ const commentForm = document.querySelector("#commentForm")
 const e1Num = document.querySelector('#thumbupCounter')
 const e2Num = document.querySelector('#thumbdownCounter')
 const e3Num = document.querySelector('#heartCounter')
-// const thumbsdown = document.querySelector("thumbsdown")
-// const heart = document.querySelector("heart")
-
-
+const reactions = document.querySelector('.reactions')
 
 window.addEventListener("load", (req,res) => {
-    ID = window.localStorage.getItem('id')
+    dataLength = window.localStorage.getItem('dataLength')
+    var ID = (Math.floor(Math.random() * dataLength))+1
+
+
     fetch(`http://localhost:3000/ipj/${ID}`)
     .then(res => res.json())
     .then(renderCard)
@@ -37,12 +37,11 @@ function renderCard (data) {
         const p = document.createElement("p")
         p.textContent = text
 
-        const reactions = document.createElement("div")
-        reactions.setAttribute("class", "reactions")
+        const reactions = document.querySelector('.reactions')
+        reactions.setAttribute("id", postID)
 
         const emojis = data.emoji;
-        console.log(emojis.length)
-        if(emojis){
+        
             console.log('emoji present here!')
             const e1Counter = emojis.filter((x) => {
                 return x === "&#128077;"
@@ -60,16 +59,10 @@ function renderCard (data) {
 
            
 
-        } else {
-            
-
-            e1Num.textContent = 0;
-            e2Num.textContent = 0;
-            e3Num.textContent = 0;
-
-        }
         
-        if(data.comment){const comments = data.comment;
+        
+        
+        const comments = data.comment;
         
         comments.forEach((x) => {
             const comment = document.createElement("p")
@@ -78,7 +71,7 @@ function renderCard (data) {
             comment.textContent = x
             col1.append(comment)
         })
-        }   
+          
         // reactions.append(commentB)
         
         div.append(h2)
@@ -234,6 +227,8 @@ function postHeartEmoji(e){
 
 function emojiReact() {
     console.log('you have reacted!')
+    const ID = reactions.getAttribute("id")
+    window.localStorage.setItem('id',ID)
     window.location.href = './specificPost.html'
     
     
