@@ -5,6 +5,7 @@
 }
 
 body {
+    font-family: 'Indie Flower', 'monospace';
     grid-template-rows: auto 100vh auto;
 }
 
@@ -12,6 +13,7 @@ nav {
     width: auto;
     background-color: #61C6D2;
     display: flex;
+    flex-direction: column;
     align-items: center;
     height: auto;
 }
@@ -19,7 +21,9 @@ nav {
 .navTop{
     padding-top: 20px;
     color: #4F6E7B;
-}
+    font-size: 30px;
+
+
 
 .nav-bottom{
     display: flex;
@@ -27,6 +31,7 @@ nav {
 }
 
 #searchbar {
+    font-family: 'Indie Flower', 'monospace';
     height: 20px;
     margin-left: 20px;
     border-radius: 10px;
@@ -40,6 +45,9 @@ nav {
 }
 
 .nav-bottom > a >  button{
+    font-family: 'Indie Flower', 'monospace';
+    font-size: 15px;
+    font-weight:bold;
     border-radius: 15px;
     padding: 5px 40px;
     color: #4F6E7B;
@@ -70,12 +78,18 @@ section {
 
 .col3 {
     width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
 }
 
 
 .card {
     display: grid;
     grid-template-rows: 30px 200px 150px 50px;
+    width: fit-content;
+    height: fit-content;
     grid-row-gap: 20px;
     padding: 20px;
     border-radius: 15px;
@@ -106,6 +120,10 @@ section {
     padding: 30px;
 }
 
+.reactions > button:hover{
+    cursor: pointer;
+}
+
 .reactions > button {
     border: none;
     padding: 10px 20px;
@@ -124,6 +142,9 @@ section {
     border: lightgray 1px solid;
 }
 
+#btncomment{
+    font-size:20px;
+}
 #comment-header{
     padding:20px;
     font-size: 30px;
@@ -131,10 +152,68 @@ section {
     
 }
 
+.buttons{
+    font-family: 'Indie Flower', 'monospace';
+    font-weight: bold;
+    border-radius: 15px;
+    padding: 5px 40px;
+    color: #4F6E7B;
+    border: none;
+}
+
+#comment{
+    font-family: 'Indie Flower', 'monospace';
+    width: 300px;
+    height: 150px;
+    resize: none;
+}
+
+.col1>p{
+    margin:10px;
+}
+
+
+
+
 footer {
     width: auto;
     background-color: #61C6D2;
     display: flex;
     align-items: center;
     height: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+    .cardHolder{
+        display:flex;
+        flex-direction: column;
+    }
+    .col2{
+        order:-1;
+    }
+    .card{
+        display:flex;
+        flex-direction: column;
+    }
+    .card > img{
+        max-width: 200px;
+    }
+    .navTop{
+        font-size: 15px;
+    }
+    .nav-bottom{
+        display:flex;
+        flex-direction: column;
+    }
+
+    .nav-bottom > a >  button{
+        margin:5px;
+        
+       
+       
+    }
+
+    #searchbar {
+        margin: 5px;
+    }
 }

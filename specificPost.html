@@ -7,12 +7,16 @@
     <title>IPJ | Posts</title>
     <link rel="stylesheet" href="./specificPost.css">
     <link rel="shortcut icon" href="./logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <script defer src="./post.js"></script>
 
 </head>
 <body>
     <nav>
         <div class="navTop">
+            <img src="./logo.png" alt="logo">
             <h2 >It's Pronounced Jif</h2>
         </div>
         <div class="nav-bottom">
@@ -31,33 +35,33 @@
         </div>
     </nav>
     <section>
-        <div class="cardHolder">
+    <div class="cardHolder">
         <div class="col1">
             <h3 id = "comment-header">Comments:</h3>
-
         </div>
-    <div class="col2">
-    
-    </div>
-    <div class="col3"> 
-        <form action="" id = "commentForm">
-        <textarea type="text" placeholder="Leave a comment..." name="post" id="comment" hidden="hidden"></textarea>
-        <input type="submit" hidden  id="postBtn" >
-        </form>
-        <!-- <button id ="postBtn" hidden> Add Comment</button> -->
-        <button id="btncomment">Leave a comment</button>
-
-        <div class="reactions">
-
-            <p id ="thumbupCounter"></p>
-            <button id="thumbsup">&#128077;</button>
-            <p id = "thumbdownCounter"></p>
-            <button id="thumbsdown">👎</button>
-            <p id = "heartCounter"></p>
-            <button id="heart">🧡</button>
+        
+        <div class="col2">
         </div>
+        
+        
+        <div class="col3"> 
+            <form action="" id = "commentForm">
+            <textarea type="text" placeholder="Leave a comment..." name="post" id="comment" hidden="hidden"></textarea>
+            <input type="submit" hidden  id="postBtn" >
+            </form>
+            <button class="buttons" id="btncomment">Leave a comment</button>
+
+            <div class="reactions">
+                <p id ="thumbupCounter">1</p>
+                
+                <button id="thumbsup">&#128077;</button>
+                <p id = "thumbdownCounter">1</p>
+                <button id="thumbsdown">👎</button>
+                <p id = "heartCounter">1</p>
+                <button id="heart">🧡</button>
+        </div>
+        
     </div>
-</div>
         </section>
 
     <footer></footer>

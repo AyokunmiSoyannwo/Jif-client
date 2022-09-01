@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <coverage generated="1662051565084" clover="3.2.0">
   <project timestamp="1662051565084" name="All files">
     <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3" elements="13" coveredelements="13" complexity="0" loc="10" ncloc="10" packages="1" files="1" classes="1"/>
@@ -14,6 +15,23 @@
       <line num="15" count="15" type="stmt"/>
       <line num="16" count="15" type="stmt"/>
       <line num="21" count="3" type="stmt"/>
+=======
+<coverage generated="1662021458852" clover="3.2.0">
+  <project timestamp="1662021458852" name="All files">
+    <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3" elements="13" coveredelements="13" complexity="0" loc="10" ncloc="10" packages="1" files="1" classes="1"/>
+    <file name="helpers.js" path="/Users/matthewlo/Desktop/Week3/day5/Jif-client/__test__/helpers.js">
+      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="7" count="9" type="stmt"/>
+      <line num="9" count="9" type="stmt"/>
+      <line num="14" count="9" type="stmt"/>
+      <line num="15" count="9" type="stmt"/>
+      <line num="16" count="9" type="stmt"/>
+      <line num="21" count="1" type="stmt"/>
+>>>>>>> fd559bf3ba7e8c7890e91a6a529cbfd738efba4d
     </file>
   </project>
 </coverage>
