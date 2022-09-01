@@ -188,6 +188,11 @@ function sortOrder (data2) {
     h.forEach((e) => {
         sorted.push(e.id)
     }) 
+} else{
+    for(let i =0; i < data2.length ; i++){
+        sorted.push(i)
+    }
+    
 }
     
     const links = document.querySelectorAll(".cardlink")

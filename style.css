@@ -68,7 +68,7 @@ section {
 }
 .cardHolder {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(3,1fr);
     grid-column-gap: 60px;
     grid-row-gap: 60px;
 }
@@ -87,8 +87,10 @@ footer {
 
 .card {
     display: grid;
-    grid-template-rows: 30px 200px 150px 50px;
+    grid-template-rows: 30px 200px 200px 50px;
     grid-row-gap: 20px;
+    /* display: flex;
+    flex-direction: column; */
     padding: 20px;
     border-radius: 15px;
     border: none;
@@ -149,3 +151,7 @@ footer {
         max-width: 200px;
     }
   }
+
+#sorter{
+    padding: 15px;
+}
