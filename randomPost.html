@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IPJ | Posts</title>
-    <link rel="stylesheet" href="./specificPost.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./randomPost.css">
     <link rel="shortcut icon" href="./logo.png" type="image/x-icon">
     <script defer src="./randomPost.js"></script>
 
@@ -17,13 +20,13 @@
         </div>
         <div class="nav-bottom">
             <a href="./index.html">
-                <button class="navButton">Home</button>
+                <button class="navButton buttons">Home</button>
             </a>
             <a href="./makeAPost.html">
-                <button class="navButton">Make a post</button>
+                <button class="navButton buttons">Make a post</button>
             </a>
             <a href="./randomPost.html">
-                <button class="navButton">Show me a random post</button>
+                <button class="navButton buttons">Show me a random post</button>
             </a>
             <form action="./searchResults.html" method="GET">
                 <input id="searchbar" type="search" placeholder="Search for a post"  name="search_word">
@@ -41,11 +44,10 @@
     </div>
     <div class="col3"> 
         <form action="" id = "commentForm">
-        <textarea type="text" placeholder="Leave a comment..." name="post" id="comment" hidden="hidden"></textarea>
-        <input type="submit" hidden  id="postBtn" >
+        <textarea type="text" placeholder="Leave a comment..." name="post" id="comment" hidden="hidden" required></textarea>
+        <input  class = "buttons" type="submit" hidden  id="postBtn" >
         </form>
-        <!-- <button id ="postBtn" hidden> Add Comment</button> -->
-        <button id="btncomment">Leave a comment</button>
+        <button class = "buttons" id="btncomment">Leave a comment</button>
 
         <div class="reactions">
 
