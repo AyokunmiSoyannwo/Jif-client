@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPJ | Make a Post</title>
+    <link rel="stylesheet" href="./makeAPost.css">
+    <link rel="shortcut icon" href="./logo.png" type="image/x-icon">
+    <script defer src="./journalPost.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="navTop">
+            <h2 >It's Pronounced Jif</h2>
+        </div>
+        <div class="nav-bottom">
+            <a href="./index.html">
+                <button class="navButton">Home</button>
+            </a>
+            <a href="./makeAPost.html">
+                <button class="navButton">Make a post</button>
+            </a>
+            <a href="./randomPost.html">
+                <button class="navButton">Show me a random post</button>
+            </a>
+            <form action="./searchResults.html" method="GET">
+                <input id="searchbar" type="search" placeholder="Search for a post"  name="search_word">
+            </form>
+        </div>
+    </nav>
+    <section>
+        <div class="card">
+                <div class="container">
+                    <div>
+                    <input type="text" class="js-userinput 
+                      container-textinput" placeholder="Search a gif">
+                    <button class="search container-button">Search</button>
+                    </div>
+                    <p class="selectedgif">Click to select a gif: </p>
+                    <img id="selection" src="" alt="">
+                    <div class="gif-container">
+                        <div class="container js-container"></div>
+                    </div>
+                </div>
+            <form action="index.html" name="post" id = "new-journal-form">
+                <div>
+                    <input type="text" id="gif" name="gif">
+                    <input type="text" placeholder="Title of Post?" id="titleInput" name="post" maxlength="30" required>
+                    <p id="titleLength">0/30</p>
+                </div>
+                <div>
+                    <textarea type="text" placeholder="input text" name="post" id="textInput" maxlength="300" required></textarea>
+
+                    <p id="messageLength">0/300</p>
+
+                </div>
+                
+                
+                <input type="submit" name="post" id="submit" value="post">
+            </form>
+        </div>
+<div class = "newEntry">
+
+</div>
+    </section>
+    <footer></footer>
+    
+</body>
+</html>
