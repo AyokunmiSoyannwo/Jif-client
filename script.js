@@ -101,12 +101,14 @@ function renderAllCards (data) {
             e2.setAttribute("class", "emojibutton")
             e3.setAttribute("class", "emojibutton")
             
-            reactions.append(e1Num)
-            reactions.append(e1)
-            reactions.append(e2Num)
-            reactions.append(e2)
-            reactions.append(e3Num)
-            reactions.append(e3)
+            reactionarr[i].append(e1Num)
+            reactionarr[i].append(e1)
+            reactionarr[i].append(e2Num)
+            reactionarr[i].append(e2)
+            reactionarr[i].append(e3Num)
+            reactionarr[i].append(e3)
+            
+           
             divs[i].append(reactionarr[i])
            
         } else {
