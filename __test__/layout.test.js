@@ -63,3 +63,16 @@ describe("home page", () => {
         })
     })
 })
+
+describe('Specific Post.html', () => {
+    beforeEach(() => {
+        document.documentElement.innerHTML = html.toString();
+    })
+    test('card loads when window is loaded', () => {
+        const card = document.querySelector(".card")
+        // const commentTextbox = document.querySelector("#comment")
+        window.dispatchEvent(new Event('load'))
+        const image = document.querySelector("img")
+        expect(image).toBe('true')
+    })
+})
