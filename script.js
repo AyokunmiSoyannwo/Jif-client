@@ -97,7 +97,7 @@ function renderAllCards (data) {
             e1.setAttribute("class", "emojibutton")
             e2.setAttribute("class", "emojibutton")
             e3.setAttribute("class", "emojibutton")
-            
+
 
             reactionarr[i].append(e1Num)
             reactionarr[i].append(e1)
@@ -108,7 +108,7 @@ function renderAllCards (data) {
             
            
             divs[i].append(reactionarr[i])
-           
+
 
 }
 }
