@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: Indie Flower, monospace;
 }
 
 body {
@@ -14,12 +15,21 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: auto;
 }
 
 .navTop{
     padding-top: 20px;
     color: #4F6E7B;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+.navTop > img {
+    width: 50px;
+    margin: auto;
 }
 
 .nav-bottom{
@@ -54,16 +64,20 @@ nav {
 section {
     margin: 30px;
     min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
 }
 .title {
     margin: 30px;
     text-align: center;
 }
 .cardHolder {
-    display: grid;
-    grid-template-columns: 30% 30% 30%;
-    grid-column-gap: 60px;
-    grid-row-gap: 60px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
 }
 .col1 {
     width: auto
@@ -76,13 +90,15 @@ section {
 
 .card {
     display: grid;
-    grid-template-rows: 30px 200px 150px 50px;
+    grid-template-rows: 30px 200px auto 50px;
+    height: fit-content;
     grid-row-gap: 20px;
     padding: 20px;
     border-radius: 15px;
     border-radius: 15px;
     border: none;
     box-shadow: 0px 3px 10px #4F6E7B;
+    margin-bottom: 40px;
 }
 
 .card > h2 {
@@ -102,21 +118,25 @@ section {
 .reactions {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     border: none;
-    padding: 30px;
+    padding: 5px 0px 20px 0px;
+}
+
+.reactions > button:hover{
+    cursor: pointer;
 }
 
 .reactions > button {
     border: none;
     padding: 10px 20px;
     border-radius: 20px;
+    margin: 15px;
 }
 
 .image {
     max-height: 200px;
     margin: auto;
-    background-color: aqua;
 }
 
 .comments {
@@ -125,11 +145,25 @@ section {
     border: lightgray 1px solid;
 }
 
+
+#btncomment{
+    border-radius: 10px;
+    padding: 5px 20px;
+    border: lightgray 1px solid;
+    margin-bottom: 10px;
+}
+
+#postBtn{
+    border-radius: 10px;
+    padding: 5px 10px;
+    border: lightgray 1px solid;
+    margin-left: 20px;
+}
+
 #comment-header{
     padding:20px;
     font-size: 30px;
     padding-left: 0;
-    
 }
 
 footer {
