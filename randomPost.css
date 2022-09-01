@@ -21,6 +21,14 @@ nav {
 .navTop{
     padding-top: 20px;
     color: #4F6E7B;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+.navTop > img {
+    width: 50px;
+    margin: auto;
 }
 
 .nav-bottom{
@@ -84,6 +92,8 @@ section {
 .card {
     display: grid;
     grid-template-rows: 30px 200px 150px 50px;
+    width: fit-content;
+    height: fit-content;
     grid-row-gap: 20px;
     padding: 20px;
     border-radius: 15px;
@@ -112,6 +122,10 @@ section {
     justify-content: space-around;
     border: none;
     padding: 30px;
+}
+
+.reactions > button:hover{
+    cursor: pointer;
 }
 
 .reactions > button {

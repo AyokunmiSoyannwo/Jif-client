@@ -1,11 +1,11 @@
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
-    font-family: Indie Flower, monospace;
+    box-sizing: border-box; 
 }
 
 body {
+    font-family: Indie Flower, monospace;
     grid-template-rows: auto 100vh auto;
 }
 
@@ -64,20 +64,16 @@ nav {
 section {
     margin: 30px;
     min-height: 90vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-self: center;
 }
 .title {
     margin: 30px;
     text-align: center;
 }
 .cardHolder {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 50%;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-column-gap: 60px;
+    grid-row-gap: 60px;
 }
 .col1 {
     width: auto
@@ -85,12 +81,16 @@ section {
 
 .col3 {
     width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 
 .card {
     display: grid;
     grid-template-rows: 30px 200px auto 50px;
+    width: fit-content;
     height: fit-content;
     grid-row-gap: 20px;
     padding: 20px;
@@ -98,7 +98,6 @@ section {
     border-radius: 15px;
     border: none;
     box-shadow: 0px 3px 10px #4F6E7B;
-    margin-bottom: 40px;
 }
 
 .card > h2 {
@@ -118,9 +117,9 @@ section {
 .reactions {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     border: none;
-    padding: 5px 0px 20px 0px;
+    padding: 30px;
 }
 
 .reactions > button:hover{
@@ -151,6 +150,16 @@ section {
     padding: 5px 20px;
     border: lightgray 1px solid;
     margin-bottom: 10px;
+    font-size:20px;
+}
+
+.buttons{
+    font-family: 'Indie Flower', 'monospace';
+    font-weight: bold;
+    border-radius: 15px;
+    padding: 5px 40px;
+    color: #4F6E7B;
+    border: none;
 }
 
 #postBtn{
@@ -172,4 +181,39 @@ footer {
     display: flex;
     align-items: center;
     height: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+    .cardHolder{
+        display:flex;
+        flex-direction: column;
+    }
+    .col2{
+        order:-1;
+    }
+    .card{
+        display:flex;
+        flex-direction: column;
+    }
+    .card > img{
+        max-width: 200px;
+    }
+    .navTop{
+        font-size: 15px;
+    }
+    .nav-bottom{
+        display:flex;
+        flex-direction: column;
+    }
+
+    .nav-bottom > a >  button{
+        margin:5px;
+        
+       
+       
+    }
+
+    #searchbar {
+        margin: 5px;
+    }
 }
