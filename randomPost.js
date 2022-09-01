@@ -8,11 +8,9 @@ const e3Num = document.querySelector('#heartCounter')
 const reactions = document.querySelector('.reactions')
 
 window.addEventListener("load", (req,res) => {
-    dataLength = window.localStorage.getItem('dataLength')
-    var ID = (Math.floor(Math.random() * dataLength))+1
 
     
-    fetch(`https://jif-futureproof.herokuapp.com/ipj/${ID}`)
+    fetch(`https://jif-futureproof.herokuapp.com/ipj/random`)
     .then(res => res.json())
     .then(renderCard)
 

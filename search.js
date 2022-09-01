@@ -21,6 +21,8 @@ function check (data) {
 
     function renderAllCards (data) {
         let divs =[];
+        let reactionarr = []
+        let imagearr = []
         for (let i=0; i < data.length ; i++) {
             const link = document.createElement("a")
             link.setAttribute("href", "./specificPost.html")
@@ -42,7 +44,9 @@ function check (data) {
             const text = data[i].text
             const img = document.createElement("img")
             img.setAttribute("class", "image")
-            img.src =gif
+            img.src = gif 
+            imagearr.push(img)
+            imagearr[i].setAttribute("id", postID)
             const h2 = document.createElement("h2")
             h2.setAttribute("id",postID)
             h2.textContent = title
@@ -51,15 +55,53 @@ function check (data) {
             p.textContent = text
             const reactions = document.createElement("div")
             reactions.setAttribute("class", "reactions")
+            reactionarr.push(reactions)
+            reactionarr[i].setAttribute("id", postID)
+
+
+            const emojis = data[i].emoji;
+       
+
+       
+            const e1Counter = emojis.filter((x) => {
+                return x === "&#128077;"
+            })
+            const e2Counter = emojis.filter((x) => {
+                return x === "&#128078;"
+            })
+            const e3Counter = emojis.filter((x) => {
+                return x === "&#129505;"
+            })
+            
+            
+            const e1Num = document.createElement('p')
+            const e2Num = document.createElement('p')
+            const e3Num = document.createElement('p')
+            e1Num.setAttribute("class", "emojiCounter")
+            e2Num.setAttribute("class", "emojiCounter")
+            e3Num.setAttribute("class", "emojiCounter")
+
+            e1Num.textContent = e1Counter.length;
+            e2Num.textContent = e2Counter.length;
+            e3Num.textContent = e3Counter.length;
+
             const e1 = document.createElement("button")
             e1.innerHTML = "&#128077;"
             const e2 = document.createElement("button")
             e2.innerHTML = "&#128078;"
             const e3 = document.createElement("button")
             e3.innerHTML = "&#129505;"
-            reactions.append(e1)
-            reactions.append(e2)
-            reactions.append(e3)
+            e1.setAttribute("class", "emojibutton")
+            e2.setAttribute("class", "emojibutton")
+            e3.setAttribute("class", "emojibutton")
+
+
+            reactionarr[i].append(e1Num)
+            reactionarr[i].append(e1)
+            reactionarr[i].append(e2Num)
+            reactionarr[i].append(e2)
+            reactionarr[i].append(e3Num)
+            reactionarr[i].append(e3)
             divs[i].append(h2)
             divs[i].append(img)
             divs[i].append(p)

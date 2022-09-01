@@ -4,25 +4,14 @@ const cardDiv = document.querySelector(".card")
 
 newJournal.addEventListener('submit', postEntry)
 
-function appendEntry(journalData){
+function appendEntry(){
     console.log('posting!')
-    // const newHeader = document.createElement('h2');
-    // newHeader.textContent = journalData.title
-    // console.log(`This is ${journalData.title}`)
-    // const newp = document.createElement('p');
-    // newp.textContent = journalData.text;
-    // div.append(newHeader);
-    // div.append(newp);
     alert('Your post has been added')
-
-    
-
-
 
 };
 
 function postEntry(e){
-   
+//    e.preventDefault();
     
 
     const journalData = {
@@ -116,4 +105,3 @@ function displaySelection(e){
     gif.inputValue = e.target.src
     console.log(gif.inputValue)
 }
-
