@@ -26,9 +26,8 @@ function postEntry(e){
     const journalData = {
         title: e.target.titleInput.value,
         text: e.target.textInput.value,
-        gif: e.target.gif.inputValue,
-        emoji:[],
-        comment:[]
+        gif: e.target.gif.inputValue
+        
     };
     console.log(journalData)
     const options = { 

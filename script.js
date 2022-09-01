@@ -10,6 +10,7 @@ function genAllCards () {
 }
 
 function renderAllCards (data) {
+    window.localStorage.setItem('dataLength',data.length)
     let divs =[];
     let reactionarr = []
     let imagearr = []
@@ -29,6 +30,7 @@ function renderAllCards (data) {
         divs[i].addEventListener("click", (event) => {
 
             window.localStorage.setItem('id', event.target.id);
+            
 
         })
         const gif = data[i].gif
