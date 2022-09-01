@@ -5,12 +5,13 @@
 }
 
 body {
+    font-family: 'Indie Flower', 'monospace';
     grid-template-rows: auto 100vh auto;
     background-color: #F6f6f6;
 }
 
 nav {
-    width: auto;
+    width: 100%;
     background-color: #61C6D2;
     display: flex;
     flex-direction: column;
@@ -25,6 +26,7 @@ nav {
 }
 
 .nav-bottom{
+    
     display: flex;
     align-items: center;
 }
@@ -35,6 +37,8 @@ nav {
     border-radius: 10px;
     padding:12px 10px;
     border: none;
+    font-family: 'Indie Flower', 'monospace';
+    font-size: 15px;
 }
 .nav-bottom > a  :hover{
     color: #C4A6A6;
@@ -46,6 +50,9 @@ nav {
 } */
 
 .nav-bottom > a >  button{
+    font-family: 'Indie Flower', 'monospace';
+    font-size: 15px;
+    font-weight:bold;
     border-radius: 15px;
     padding: 5px 40px;
     color: #4F6E7B;
@@ -107,7 +114,7 @@ footer {
 
 
 .cardText, .card > p {
-    line-height: 1.6;
+    line-height: 1.8;
     color: gray
 }
 
@@ -129,6 +136,7 @@ footer {
 
 .reactions > p {
     font-weight: bold;
+    font-size:20px;
     color: #030303
 }
 
@@ -149,6 +157,25 @@ footer {
     }
     .card > img{
         max-width: 200px;
+    }
+    .navTop{
+        font-size: 15px;
+    }
+    .nav-bottom{
+        display:flex;
+        flex-direction: column;
+    }
+
+    .nav-bottom > a >  button{
+        margin:5px;
+        
+       
+       
+    }
+
+    #searchbar {
+        margin: 5px;
+       
     }
   }
 
