@@ -35,32 +35,35 @@
         </div>
     </nav>
     <section>
-        <div class="cardHolder">
+    <div class="cardHolder">
+        
+        <div class="col2">
+            <div class="reactions">
+                <p id ="thumbupCounter">1</p>
+                
+                <button id="thumbsup">&#128077;</button>
+                <p id = "thumbdownCounter">1</p>
+                <button id="thumbsdown">👎</button>
+                <p id = "heartCounter">1</p>
+                <button id="heart">🧡</button>
+            </div>
+        
+        </div>
+        <div class="col3"> 
+            <form action="" id = "commentForm">
+            <textarea type="text" placeholder="Leave a comment..." name="post" id="comment" hidden="hidden"></textarea>
+            <input type="submit" hidden  id="postBtn" >
+            </form>
+            <!-- <button id ="postBtn" hidden> Add Comment</button> -->
+            <button id="btncomment">Leave a comment</button>
+        </div>
+
         <div class="col1">
             <h2>Comments</h2>
 
         </div>
-    <div class="col2">
-        <div class="reactions">
-            <p id ="thumbupCounter">1</p>
-            
-            <button id="thumbsup">&#128077;</button>
-            <p id = "thumbdownCounter">1</p>
-            <button id="thumbsdown">👎</button>
-            <p id = "heartCounter">1</p>
-            <button id="heart">🧡</button>
-        </div>
-    
+        
     </div>
-    <div class="col3"> 
-        <form action="" id = "commentForm">
-        <textarea type="text" placeholder="Leave a comment..." name="post" id="comment" hidden="hidden"></textarea>
-        <input type="submit" hidden  id="postBtn" >
-        </form>
-        <!-- <button id ="postBtn" hidden> Add Comment</button> -->
-        <button id="btncomment">Leave a comment</button>
-    </div>
-</div>
         </section>
 
     <footer></footer>

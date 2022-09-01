@@ -64,16 +64,20 @@ nav {
 section {
     margin: 30px;
     min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
 }
 .title {
     margin: 30px;
     text-align: center;
 }
 .cardHolder {
-    display: grid;
-    grid-template-columns: 30% auto 30%;
-    grid-column-gap: 60px;
-    grid-row-gap: 60px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
 }
 .col1 {
     width: auto
@@ -94,6 +98,7 @@ section {
     border-radius: 15px;
     border: none;
     box-shadow: 0px 3px 10px #4F6E7B;
+    margin-bottom: 40px;
 }
 
 .card > h2 {
@@ -113,7 +118,7 @@ section {
 .reactions {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     border: none;
     padding: 5px 0px 20px 0px;
 }
@@ -126,6 +131,7 @@ section {
     border: none;
     padding: 10px 20px;
     border-radius: 20px;
+    margin: 15px;
 }
 
 .image {
@@ -147,6 +153,7 @@ section {
     border-radius: 10px;
     padding: 5px 20px;
     border: lightgray 1px solid;
+    margin-bottom: 10px;
 }
 
 #postBtn{
