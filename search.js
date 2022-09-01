@@ -70,6 +70,7 @@ function check (data) {
     }
     }
 const title = document.querySelector(".title")
+console.log(title)
 
 window.addEventListener("load", () => {
     title.textContent = `Search results for "${newWord}"`

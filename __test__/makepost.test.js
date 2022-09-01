@@ -4,7 +4,7 @@ let dom;
 let document;
 
 
-xdescribe('makeAPost.html', () => {
+describe('makeAPost.html', () => {
   beforeEach(async () => {
     dom = await renderDOM('makeAPost.html');
     document = await dom.window.document;
@@ -27,7 +27,7 @@ xdescribe('makeAPost.html', () => {
 
   it('it has a gifty search button', () => {
     const serachBtn = document.querySelector('.search');
-    expect(serachBtn.textContent).toBe('Search for gif')
+    expect(serachBtn.textContent).toBe('Search')
   })
 
   it('it displays 25 gifs when user click search', () => {
@@ -44,12 +44,12 @@ xdescribe('makeAPost.html', () => {
 
   it('limit user input to 300 characters', () => {
     const ptitle = document.querySelector("#textInput")
-    expect(ptitle.maxLength).toBe(250)
+    expect(ptitle.maxLength).toBe(300)
   })
 
   it("it has a post button with 'post'", () => {
     const post = document.querySelector("#submit")
-    expect(post.value).toBe("Submit")
+    expect(post.value).toBe("post")
   })
 
 })

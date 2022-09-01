@@ -15,12 +15,12 @@ describe('specificPost.html', () => {
       expect(commentForm).toBeTruthy;
     })
 
-    xit('it has a text area to leave comments', () => {
+    it('it has a text area to leave comments', () => {
         const comment = document.querySelector('#comment')
-        expect(comment.placeholder).toBe('Leave a comment')
+        expect(comment.placeholder).toBe('Leave a comment...')
     })
     
-    xit('Comment textarea no longer hides when comment btn is clicked', () => {
+    it('Comment textarea no longer hides when comment btn is clicked', () => {
         const commentBtn = document.querySelector("#btncomment")
         const commentTextbox = document.querySelector("#comment")
         commentBtn.dispatchEvent(new dom.window.Event('click'))
@@ -28,8 +28,8 @@ describe('specificPost.html', () => {
     })
 
     it('create a card when document is loaded', () => {
-        const card = document.querySelector("card")
         document.dispatchEvent(new dom.window.Event('load'))
+        const card = document.querySelector(".card")
         expect(card).toBeTruthy()
     })
 

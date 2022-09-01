@@ -62,7 +62,8 @@ describe("home page", () => {
             expect(cardText.getElementsByTagName("button").length).toBe(3)
         })
     })
-})
+    })
+
 
 describe('Specific Post.html', () => {
     beforeEach(() => {
