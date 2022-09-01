@@ -65,7 +65,7 @@ function renderAllCards (data) {
         const emojis = data[i].emoji;
         console.log(emojis)
 
-        if(emojis){
+       
             const e1Counter = emojis.filter((x) => {
                 return x === "&#128077;"
             })
@@ -98,34 +98,6 @@ function renderAllCards (data) {
             e2.setAttribute("class", "emojibutton")
             e3.setAttribute("class", "emojibutton")
             
-            reactions.append(e1Num)
-            reactions.append(e1)
-            reactions.append(e2Num)
-            reactions.append(e2)
-            reactions.append(e3Num)
-            reactions.append(e3)
-            divs[i].append(reactions)
-        } 
-        // else {
-        //     const e1Num = document.createElement('p')
-        //     const e2Num = document.createElement('p')
-        //     const e3Num = document.createElement('p')
-        //     e1Num.setAttribute("class", "emojiCounter")
-        //     e2Num.setAttribute("class", "emojiCounter")
-        //     e3Num.setAttribute("class", "emojiCounter")
-
-        //     e1Num.textContent = 0;
-        //     e2Num.textContent = 0;
-        //     e3Num.textContent = 0;
-
-           
-        //     const e1 = document.createElement("button")
-        //     e1.innerHTML = "&#128077;"
-        //     const e2 = document.createElement("button")
-        //     e2.innerHTML = "&#128078;"
-        //     const e3 = document.createElement("button")
-        //     e3.innerHTML = "&#129505;"
-            
 
             reactionarr[i].append(e1Num)
             reactionarr[i].append(e1)
@@ -133,10 +105,10 @@ function renderAllCards (data) {
             reactionarr[i].append(e2)
             reactionarr[i].append(e3Num)
             reactionarr[i].append(e3)
+            
+           
             divs[i].append(reactionarr[i])
-        }
-        // divs[i].append(img)
-        
+           
 
 }
 }
