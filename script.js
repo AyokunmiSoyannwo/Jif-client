@@ -65,7 +65,7 @@ function renderAllCards (data) {
         const emojis = data[i].emoji;
         console.log(emojis)
 
-        if(emojis){
+       
             const e1Counter = emojis.filter((x) => {
                 return x === "&#128077;"
             })
@@ -98,15 +98,17 @@ function renderAllCards (data) {
             e2.setAttribute("class", "emojibutton")
             e3.setAttribute("class", "emojibutton")
 
+
             reactionarr[i].append(e1Num)
             reactionarr[i].append(e1)
             reactionarr[i].append(e2Num)
             reactionarr[i].append(e2)
             reactionarr[i].append(e3Num)
             reactionarr[i].append(e3)
+            
+           
             divs[i].append(reactionarr[i])
-        }
-        
+
 
 }
 }

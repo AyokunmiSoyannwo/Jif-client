@@ -21,6 +21,7 @@ nav {
 .navTop{
     padding-top: 20px;
     color: #4F6E7B;
+    font-size: 30px;
 }
 
 .nav-bottom{
@@ -63,6 +64,7 @@ section {
     margin: 30px;
     text-align: center;
     color: #4F6E7B;
+    font-size: 20px;
 }
 .cardHolder {
     display: grid;
@@ -119,6 +121,13 @@ footer {
     padding: 10px 20px;
     border-radius: 20px;
     pointer-events: none;
+    background-color: #F6f6f6;
+    font-size: 30px;
+}
+
+.reactions > p {
+    font-weight: bold;
+    color: #030303
 }
 
 .image {
@@ -127,3 +136,16 @@ footer {
     background-color: aqua;
 }
 
+@media only screen and (max-width: 600px) {
+    .cardHolder{
+        display:flex;
+        flex-direction: column;
+    }
+    .card{
+        display:flex;
+        flex-direction: column;
+    }
+    .card > img{
+        max-width: 200px;
+    }
+  }
