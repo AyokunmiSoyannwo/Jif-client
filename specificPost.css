@@ -1,10 +1,11 @@
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; 
 }
 
 body {
+    font-family: Indie Flower, monospace;
     grid-template-rows: auto 100vh auto;
 }
 
@@ -14,12 +15,21 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: auto;
 }
 
 .navTop{
     padding-top: 20px;
     color: #4F6E7B;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+.navTop > img {
+    width: 50px;
+    margin: auto;
 }
 
 .nav-bottom{
@@ -71,12 +81,17 @@ section {
 
 .col3 {
     width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 
 .card {
     display: grid;
-    grid-template-rows: 30px 200px 150px 50px;
+    grid-template-rows: 30px 200px auto 50px;
+    width: fit-content;
+    height: fit-content;
     grid-row-gap: 20px;
     padding: 20px;
     border-radius: 15px;
@@ -107,16 +122,20 @@ section {
     padding: 30px;
 }
 
+.reactions > button:hover{
+    cursor: pointer;
+}
+
 .reactions > button {
     border: none;
     padding: 10px 20px;
     border-radius: 20px;
+    margin: 15px;
 }
 
 .image {
     max-height: 200px;
     margin: auto;
-    background-color: aqua;
 }
 
 .comments {
@@ -125,11 +144,35 @@ section {
     border: lightgray 1px solid;
 }
 
+
+#btncomment{
+    border-radius: 10px;
+    padding: 5px 20px;
+    border: lightgray 1px solid;
+    margin-bottom: 10px;
+    font-size:20px;
+}
+
+.buttons{
+    font-family: 'Indie Flower', 'monospace';
+    font-weight: bold;
+    border-radius: 15px;
+    padding: 5px 40px;
+    color: #4F6E7B;
+    border: none;
+}
+
+#postBtn{
+    border-radius: 10px;
+    padding: 5px 10px;
+    border: lightgray 1px solid;
+    margin-left: 20px;
+}
+
 #comment-header{
     padding:20px;
     font-size: 30px;
     padding-left: 0;
-    
 }
 
 footer {
@@ -138,4 +181,39 @@ footer {
     display: flex;
     align-items: center;
     height: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+    .cardHolder{
+        display:flex;
+        flex-direction: column;
+    }
+    .col2{
+        order:-1;
+    }
+    .card{
+        display:flex;
+        flex-direction: column;
+    }
+    .card > img{
+        max-width: 200px;
+    }
+    .navTop{
+        font-size: 15px;
+    }
+    .nav-bottom{
+        display:flex;
+        flex-direction: column;
+    }
+
+    .nav-bottom > a >  button{
+        margin:5px;
+        
+       
+       
+    }
+
+    #searchbar {
+        margin: 5px;
+    }
 }
