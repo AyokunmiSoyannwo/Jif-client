@@ -5,6 +5,7 @@
 }
 
 body {
+    font-family: 'Indie Flower', 'monospace';
     grid-template-rows: auto 100vh auto;
     background-color: #F6f6f6;
 }
@@ -21,6 +22,7 @@ nav {
 .navTop{
     padding-top: 20px;
     color: #4F6E7B;
+    font-size: 30px;
 }
 
 .nav-bottom{
@@ -29,6 +31,7 @@ nav {
 }
 
 #searchbar {
+    font-family: 'Indie Flower', 'monospace';
     height: 20px;
     margin-left: 20px;
     border-radius: 10px;
@@ -41,6 +44,9 @@ nav {
 }
 
 .nav-bottom > a >  button{
+    font-family: 'Indie Flower', 'monospace';
+    font-size: 15px;
+    font-weight:bold;
     border-radius: 15px;
     padding: 5px 40px;
     color: #4F6E7B;
@@ -51,6 +57,13 @@ nav {
     margin: 20px;
 }
 
+.inputstyle{
+    font-family: 'Indie Flower', 'monospace';
+}
+
+.buttons{
+    font-weight: bold;
+}
 section {
     margin: 30px;
     min-height: 90vh;

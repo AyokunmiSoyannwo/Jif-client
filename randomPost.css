@@ -21,6 +21,7 @@ nav {
 .navTop{
     padding-top: 20px;
     color: #4F6E7B;
+    font-size: 30px;
 }
 
 .nav-bottom{
@@ -44,6 +45,8 @@ nav {
 
 .nav-bottom > a >  button{
     font-family: 'Indie Flower', 'monospace';
+    font-size: 15px;
+    font-weight:bold;
     border-radius: 15px;
     padding: 5px 40px;
     color: #4F6E7B;
