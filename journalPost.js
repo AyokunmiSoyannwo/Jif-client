@@ -5,6 +5,7 @@ const cardDiv = document.querySelector(".card")
 newJournal.addEventListener('submit', postEntry)
 
 function appendEntry(journalData){
+    console.log('posting!')
     // const newHeader = document.createElement('h2');
     // newHeader.textContent = journalData.title
     // console.log(`This is ${journalData.title}`)
@@ -21,12 +22,14 @@ function appendEntry(journalData){
 };
 
 function postEntry(e){
+   
     
 
     const journalData = {
         title: e.target.titleInput.value,
         text: e.target.textInput.value,
         gif: e.target.gif.inputValue
+        
     };
     console.log(journalData)
     const options = { 
@@ -36,7 +39,7 @@ function postEntry(e){
             "Content-Type": "application/json"
         }
     };
-    fetch('http://localhost:3000/ipj',options)
+    fetch('https://jif-futureproof.herokuapp.com/ipj',options)
         .then(r => r.json())
         .then(appendEntry)
         .catch(console.warn)

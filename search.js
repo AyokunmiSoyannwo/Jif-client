@@ -6,7 +6,7 @@ window.addEventListener("load", searchFunc)
 
 function searchFunc () {
     console.log("searching")
-    fetch("http://localhost:3000/ipj")
+    fetch("https://jif-futureproof.herokuapp.com/ipj")
     .then(res => res.json())
     .then(check)
 }
@@ -51,15 +51,12 @@ function check (data) {
             p.textContent = text
             const reactions = document.createElement("div")
             reactions.setAttribute("class", "reactions")
-            const commentB = document.createElement("button")
-            commentB.textContent = "Leave a comment"
             const e1 = document.createElement("button")
             e1.innerHTML = "&#128077;"
             const e2 = document.createElement("button")
             e2.innerHTML = "&#128078;"
             const e3 = document.createElement("button")
             e3.innerHTML = "&#129505;"
-            reactions.append(commentB)
             reactions.append(e1)
             reactions.append(e2)
             reactions.append(e3)
