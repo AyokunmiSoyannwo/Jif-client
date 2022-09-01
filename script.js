@@ -45,15 +45,15 @@ function renderAllCards (data) {
         const p = document.createElement("p")
         p.setAttribute("id",postID)
         p.textContent = text
-        // const reactions = document.createElement("div")
-        // reactions.setAttribute("class", "reactions")
-        // reactionarr.push(reactions)
-        // reactionarr[i].setAttribute("id", postID)
+        const reactions = document.createElement("div")
+        reactions.setAttribute("class", "reactions")
+        reactionarr.push(reactions)
+        reactionarr[i].setAttribute("id", postID)
 
         divs[i].append(h2)
-            divs[i].append(imagearr[i])
+            divs[i].append(img[i])
             divs[i].append(p)
-            // divs[i].append(reactionarr[i])
+            divs[i].append(reactionarr[i])
             link.append(divs[i])
             cardHolder.append(link)
 
@@ -73,11 +73,7 @@ function renderAllCards (data) {
                 return x === "&#129505;"
             })
             
-            const reactions = document.createElement("div")
-            reactions.setAttribute("class", "reactions")
-            reactionarr.push(reactions)
-            reactionarr[i].setAttribute("id", postID)
-
+            
             const e1Num = document.createElement('p')
             const e2Num = document.createElement('p')
             const e3Num = document.createElement('p')
@@ -105,15 +101,8 @@ function renderAllCards (data) {
             reactions.append(e2)
             reactions.append(e3Num)
             reactions.append(e3)
-            divs[i].append(reactionarr[i])
-           
+            divs[i].append(reactions)
         } else {
-
-            const reactions = document.createElement("div")
-            reactions.setAttribute("class", "reactions")
-            reactionarr.push(reactions)
-            reactionarr[i].setAttribute("id", postID)
-
             const e1Num = document.createElement('p')
             const e2Num = document.createElement('p')
             const e3Num = document.createElement('p')
@@ -139,7 +128,7 @@ function renderAllCards (data) {
             reactions.append(e2)
             reactions.append(e3Num)
             reactions.append(e3)
-            divs[i].append(reactionarr[i])
+            divs[i].append(reactions)
         }
         // divs[i].append(img)
         
@@ -148,4 +137,33 @@ function renderAllCards (data) {
 }
 window.addEventListener("load", genAllCards)
 
+function counter(x,emoji) {
+    let y;
+    if (x === emoji) {
+        y = y+1
+    } return y
+    }
+
+for (let i=0; i < data.length; i++) {
+const emojis = data[i].emoji;
+console.log(emojis)
+let thumbsUp = []
+let thumbsDown = []
+let heart = []
+
+
+
+const e1Counter = emojis.forEach(x => counter(x,"&#128077;"))
+thumbsUp.push({id: i, number: e1Counter})
+const e2Counter = emojis.forEach(x => counter(x, "&#128078;"))
+        return x === "&#128078;"
+    })
+    thumbsDown.push({id: i, number: e2Counter.length})
+    const e3Counter = emojis.filter((x) => {
+        return x === "&#129505;"
+    })
+    heart.push({id: i, number: e3Counter.length})
+
+
+    
 
