@@ -133,12 +133,12 @@ function renderAllCards (data) {
             const e3 = document.createElement("button")
             e3.innerHTML = "&#129505;"
             
-            reactions.append(e1Num)
-            reactions.append(e1)
-            reactions.append(e2Num)
-            reactions.append(e2)
-            reactions.append(e3Num)
-            reactions.append(e3)
+            reactionarr[i].append(e1Num)
+            reactionarr[i].append(e1)
+            reactionarr[i].append(e2Num)
+            reactionarr[i].append(e2)
+            reactionarr[i].append(e3Num)
+            reactionarr[i].append(e3)
             divs[i].append(reactionarr[i])
         }
         // divs[i].append(img)

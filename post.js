@@ -36,43 +36,40 @@ function renderCard (data) {
         h2.textContent = title
         const p = document.createElement("p")
         p.textContent = text
+
         const reactions = document.createElement("div")
         reactions.setAttribute("class", "reactions")
 
         const emojis = data.emoji;
-      
-        const e1Counter = emojis.filter((x) => {
-            return x === "&#128077;"
-        })
-        const e2Counter = emojis.filter((x) => {
-            return x === "&#128078;"
-        })
-        const e3Counter = emojis.filter((x) => {
-            return x === "&#129505;"
-        })
+        console.log(emojis.length)
+        if(emojis){
+            console.log('emoji present here!')
+            const e1Counter = emojis.filter((x) => {
+                return x === "&#128077;"
+            })
+            const e2Counter = emojis.filter((x) => {
+                return x === "&#128078;"
+            })
+            const e3Counter = emojis.filter((x) => {
+                return x === "&#129505;"
+            })
 
-        
-        
+            e1Num.textContent = e1Counter.length;
+            e2Num.textContent = e2Counter.length;
+            e3Num.textContent = e3Counter.length;
 
-        
-        
-        
-        
+           
 
-        e1Num.textContent = e1Counter.length;
-        e2Num.textContent = e2Counter.length;
-        e3Num.textContent = e3Counter.length;
-       
-        // const e1 = document.createElement("button")
-        // e1.innerHTML = "&#128077;"
-        // const e2 = document.createElement("button")
-        // e2.innerHTML = "&#128078;"
-        // const e3 = document.createElement("button")
-        // e3.innerHTML = "&#129505;"
-        // e1.setAttribute("id", "thumbsup")
-        // e2.setAttribute("id", "thumbsdown")
-        // e3.setAttribute("id", "heart")
-        const comments = data.comment;
+        } else {
+            
+
+            e1Num.textContent = 0;
+            e2Num.textContent = 0;
+            e3Num.textContent = 0;
+
+        }
+        
+        if(data.comment){const comments = data.comment;
         
         comments.forEach((x) => {
             const comment = document.createElement("p")
@@ -81,18 +78,13 @@ function renderCard (data) {
             comment.textContent = x
             col1.append(comment)
         })
+        }   
         // reactions.append(commentB)
-        // reactions.append(e1Num)
-        // reactions.append(e1)
-        // reactions.append(e2Num)
-        // reactions.append(e2)
-        // reactions.append(e3Num)
-        // reactions.append(e3)
+        
         div.append(h2)
         div.append(img)
         div.append(p)
-        div.append(reactions)
-        col2.append(div)
+        col2.prepend(div)
 }
 
 function makeCommentAppear(){
@@ -114,7 +106,7 @@ function postComment(e){
 
     const newComment = {
         id: window.localStorage.getItem('id'),
-        comment: e.target.comment.textContent
+        comment: e.target.comment.value
     };
    
     console.log(newComment)
@@ -143,6 +135,9 @@ function addNewComment(data){
     const col1 = document.querySelector(".col1")
     comment.textContent = data
     col1.append(comment)
+    commentTextbox.value = '';
+    
+
 }
 
 
@@ -156,6 +151,7 @@ heart.addEventListener("click", postHeartEmoji)
 
 function postThumbsUpEmoji(e){
     // e.preventDefault();
+    
     console.log('I am running')
 
     const newEmoji = {
@@ -210,6 +206,7 @@ function postThumbsDownEmoji(e){
 
 function postHeartEmoji(e){
     // e.preventDefault();
+   
     console.log('I am running')
 
     const newEmoji = {
@@ -236,6 +233,8 @@ function postHeartEmoji(e){
 };
 
 function emojiReact() {
-    
+    console.log('you have reacted!')
     window.location.href = './specificPost.html'
+    
+    
 }
