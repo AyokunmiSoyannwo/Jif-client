@@ -6,7 +6,7 @@ window.addEventListener("load", searchFunc)
 
 function searchFunc () {
     console.log("searching")
-    fetch("http://localhost:3000/ipj")
+    fetch("https://jif-futureproof.herokuapp.com/ipj")
     .then(res => res.json())
     .then(check)
 }

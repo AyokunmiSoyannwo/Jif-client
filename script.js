@@ -4,7 +4,7 @@ const searchbar = document.querySelector("#searchbar")
 
 function genAllCards () {
     console.log("I am running")
-    fetch("http://localhost:3000/ipj")
+    fetch("https://jif-futureproof.herokuapp.com/ipj")
     .then(res => res.json())
     .then(renderAllCards)
 }
@@ -124,7 +124,7 @@ function counter(x,emoji) {
 const sort = document.querySelector("#sort")
     
 sort.addEventListener("input", () => {
-    fetch("http://localhost:3000/ipj")
+    fetch("https://jif-futureproof.herokuapp.com/ipj")
     .then(res => res.json())
     .then(sortOrder)
 })

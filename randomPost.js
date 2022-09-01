@@ -11,8 +11,8 @@ window.addEventListener("load", (req,res) => {
     dataLength = window.localStorage.getItem('dataLength')
     var ID = (Math.floor(Math.random() * dataLength))+1
 
-
-    fetch(`http://localhost:3000/ipj/${ID}`)
+    
+    fetch(`https://jif-futureproof.herokuapp.com/ipj/${ID}`)
     .then(res => res.json())
     .then(renderCard)
 
@@ -116,7 +116,7 @@ function postComment(e){
     };
     console.log(options.body.length)
     console.log('this is options.body:' + options.body)
-    fetch( 'http://localhost:3000/comment',options)
+    fetch( 'https://jif-futureproof.herokuapp.com/comment',options)
         .then(r => r.text())
         .then(addNewComment)
         .catch(console.warn)
@@ -164,7 +164,7 @@ function postThumbsUpEmoji(e){
         
     };
     console.log('this is options.body:' + options.body)
-    fetch( 'http://localhost:3000/emoji',options)
+    fetch( 'https://jif-futureproof.herokuapp.com/emoji',options)
         .then(r => r.text())
         .then(emojiReact)
         .catch(console.warn)
@@ -191,7 +191,7 @@ function postThumbsDownEmoji(e){
         
     };
     console.log('this is options.body:' + options.body)
-    fetch( 'http://localhost:3000/emoji',options)
+    fetch( 'https://jif-futureproof.herokuapp.com/emoji',options)
         .then(r => r.text())
         .then(emojiReact)
         .catch(console.warn)
@@ -219,7 +219,7 @@ function postHeartEmoji(e){
         
     };
     console.log('this is options.body:' + options.body)
-    fetch( 'http://localhost:3000/emoji',options)
+    fetch( 'https://jif-futureproof.herokuapp.com/emoji',options)
         .then(r => r.text())
         .then(emojiReact)
         .catch(console.warn)
