@@ -104,6 +104,7 @@ section {
     align-items: center;
     justify-content: space-around;
     border: none;
+    padding: 30px;
 }
 
 .reactions > button {
@@ -118,14 +119,17 @@ section {
     background-color: aqua;
 }
 
-#comment {
-    margin: 20px;
-    width: 90%;
-    height: 150px;
+.comments {
     padding: 10px;
-    resize: none;
     border-radius: 10px;
     border: lightgray 1px solid;
+}
+
+#comment-header{
+    padding:20px;
+    font-size: 30px;
+    padding-left: 0;
+    
 }
 
 footer {

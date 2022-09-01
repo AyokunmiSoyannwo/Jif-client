@@ -8,6 +8,11 @@
     "cov": "jest --coverage",
     "dev": "python -m http.server"
   },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "<rootDir>/__tests__/helpers"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AyokunmiSoyannwo/Jif-client.git"
@@ -21,9 +26,11 @@
   "homepage": "https://github.com/AyokunmiSoyannwo/Jif-client#readme",
   "devDependencies": {
     "jest": "^29.0.1",
+    "jest-environment-jsdom": "^29.0.1",
     "jsdom": "^20.0.0"
   },
   "dependencies": {
+    "jest-fetch-mock": "^3.0.3",
     "watchify": "^4.0.0"
   }
 }
