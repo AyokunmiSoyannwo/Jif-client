@@ -23,13 +23,16 @@ nav {
     padding-top: 20px;
     color: #4F6E7B;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 30px;
+   
 }
 .navTop > img {
+    margin-left:20px;
     width: 50px;
-    margin: auto;
+    height: 45px;
+   
 }
 
 .nav-bottom{
@@ -38,6 +41,7 @@ nav {
 }
 
 #searchbar {
+    font-family: 'Indie Flower', 'monospace';
     height: 20px;
     margin-left: 20px;
     border-radius: 10px;
@@ -51,6 +55,8 @@ nav {
 }
 
 .nav-bottom > a >  button{
+    font-family: 'Indie Flower', 'monospace';
+    font-weight: bold;
     border-radius: 15px;
     padding: 5px 40px;
     color: #4F6E7B;
