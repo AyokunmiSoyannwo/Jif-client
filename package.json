@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --watchAll",
     "cov": "jest --coverage",
-    "dev": "python -m http.server"
+    "dev": "concurrently  \"watchify ./static/js/script.js -o ./bundle.js\" \"watchify ./static/js/search.js -o ./search_bundle.js\" \"watchify ./static/js/randomPost.js -o ./randomPost_bundle.js\" \"watchify ./static/js/post.js -o ./specificPost_bundle.js\" \"watchify ./static/js/journalPost.js -o ./journalPost_bundle.js\" \"python -m http.server\" "
   },
   "jest": {
     "testPathIgnorePatterns": [
