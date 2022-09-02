@@ -1,20 +1,13 @@
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 const body = document.querySelector("body")
 const cardHolder = document.querySelector(".cardHolder")
 const searchbar = document.querySelector("#searchbar")
-
-function genAllCards () {
-    console.log("I am running")
-    fetch("https://jif-futureproof.herokuapp.com/ipj")
-    .then(res => res.json())
-    .then(renderAllCards)
-}
 
 function renderAllCards (data) {
     window.localStorage.setItem('dataLength',data.length)
     let divs =[];
     let reactionarr = []
     let imagearr = []
-    console.log(data.length)
     for (let i=0; i < data.length ; i++) {
         console.log('this is i:'+ i + 'This is id:'+ data[i].id)
         const link = document.createElement("a")
@@ -24,8 +17,6 @@ function renderAllCards (data) {
         div.setAttribute("class", "card")
 
         var postID = parseInt(data[i].id)
-        //window.localStorage.setItem('id', postID);
-        console.log(postID)
         divs.push(div)
         divs[i].setAttribute("id", postID)
         divs[i].addEventListener("click", (event) => {
@@ -63,7 +54,6 @@ function renderAllCards (data) {
         // emoji stuff
         
         const emojis = data[i].emoji;
-        console.log(emojis)
 
        
             const e1Counter = emojis.filter((x) => {
@@ -112,22 +102,6 @@ function renderAllCards (data) {
 
 }
 }
-window.addEventListener("load", genAllCards)
-
-function counter(x,emoji) {
-    let y;
-    if (x === emoji) {
-        y = y+1
-    } return y
-    }
-    
-const sort = document.querySelector("#sort")
-    
-sort.addEventListener("input", () => {
-    fetch("https://jif-futureproof.herokuapp.com/ipj")
-    .then(res => res.json())
-    .then(sortOrder)
-})
 
 function sortOrder (data2) {
     let sorted = []
@@ -329,19 +303,44 @@ function sortOrder (data2) {
             
             
         }
-        
+
+module.exports = {
+    renderAllCards,
+    sortOrder
+}
+
+},{}],2:[function(require,module,exports){
+const helpers = require('./home_helpers')
+
+function genAllCards () {
+    console.log("I am running")
+    fetch("https://jif-futureproof.herokuapp.com/ipj")
+    .then(res => res.json())
+    .then(helpers.renderAllCards)
+}
+helpers.renderAllCards
+
+
+window.addEventListener("load", genAllCards)
+
+function counter(x,emoji) {
+    let y;
+    if (x === emoji) {
+        y = y+1
+    } return y
+    }
+    
+const sort = document.querySelector("#sort")
+    
+sort.addEventListener("input", () => {
+    fetch("https://jif-futureproof.herokuapp.com/ipj")
+    .then(res => res.json())
+    .then(helpers.sortOrder)
+})
+
+helpers.sortOrder
 
 
 
-    // let thumbsDown = []
-    // let heart = []
-    // const e2Counter = emojis.forEach(x => counter(x, "&#128078;"))
-    // thumbsDown.push({id: i, number: e2Counter})
-    // const e3Counter = emojis.forEach(x => counter(x, "&#129505;"))
-    // heart.push({id: i, number: e3Counter})
-    
-    
-    
-    // const e1Counter = emojis.filter((x) => {
-    //     return x === "&#128077;"
-    // })
+
+},{"./home_helpers":1}]},{},[2]);

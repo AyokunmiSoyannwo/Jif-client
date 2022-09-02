@@ -7,17 +7,6 @@ const e2Num = document.querySelector('#thumbdownCounter')
 const e3Num = document.querySelector('#heartCounter')
 const reactions = document.querySelector('.reactions')
 
-window.addEventListener("load", (req,res) => {
-
-    
-    fetch(`https://jif-futureproof.herokuapp.com/ipj/random`)
-    .then(res => res.json())
-    .then(renderCard)
-
-})
-
-
-
 function renderCard (data) {
     const col2 = document.querySelector(".col2")
     const div = document.createElement("div")
@@ -85,13 +74,6 @@ function makeCommentAppear(){
     commentBtn.setAttribute("hidden", "hidden")
 }
 
-commentBtn.addEventListener("click", makeCommentAppear)
-
-
-// console.log(window.localStorage.getItem('id'))
-
-commentForm.addEventListener('submit', postComment)
-
 function postComment(e){
     e.preventDefault();
 
@@ -127,107 +109,12 @@ function addNewComment(data){
     comment.textContent = data
     col1.append(comment)
     commentTextbox.value = '';
-    
-
 }
 
 
-// Add an emoji
-const thumbsup = document.querySelector("#thumbsup")
-thumbsup.addEventListener("click", postThumbsUpEmoji)
-const thumbsdown = document.querySelector("#thumbsdown")
-thumbsdown.addEventListener("click", postThumbsDownEmoji)
-const heart = document.querySelector("#heart")
-heart.addEventListener("click", postHeartEmoji)
-
-function postThumbsUpEmoji(e){
-    // e.preventDefault();
-    
-    console.log('I am running')
-
-    const newEmoji = {
-        id: window.localStorage.getItem('id'),
-        emoji: '&#128077;'
-    };
-   
-    const options = { 
-        method: 'POST',
-        body:JSON.stringify(newEmoji),
-        headers: {
-            // Accept: 'application.json',
-            'Content-Type': 'application/json',
-            // 'Content-Length': '34'
-            // 'Content-Type': 'application/x-www-form-urlencoded'
-        }
-        
-    };
-    console.log('this is options.body:' + options.body)
-    fetch( 'https://jif-futureproof.herokuapp.com/emoji',options)
-        .then(r => r.text())
-        .then(emojiReact)
-        .catch(console.warn)
-};
-
-function postThumbsDownEmoji(e){
-    // e.preventDefault();
-    console.log('I am running')
-
-    const newEmoji = {
-        id: window.localStorage.getItem('id'),
-        emoji: '&#128078;'
-    };
-   
-    const options = { 
-        method: 'POST',
-        body:JSON.stringify(newEmoji),
-        headers: {
-            // Accept: 'application.json',
-            'Content-Type': 'application/json',
-            // 'Content-Length': '34'
-            // 'Content-Type': 'application/x-www-form-urlencoded'
-        }
-        
-    };
-    console.log('this is options.body:' + options.body)
-    fetch( 'https://jif-futureproof.herokuapp.com/emoji',options)
-        .then(r => r.text())
-        .then(emojiReact)
-        .catch(console.warn)
-};
-
-function postHeartEmoji(e){
-    // e.preventDefault();
-   
-    console.log('I am running')
-
-    const newEmoji = {
-        id: window.localStorage.getItem('id'),
-        emoji: '&#129505;'
-    };
-   
-    const options = { 
-        method: 'POST',
-        body:JSON.stringify(newEmoji),
-        headers: {
-            // Accept: 'application.json',
-            'Content-Type': 'application/json',
-            // 'Content-Length': '34'
-            // 'Content-Type': 'application/x-www-form-urlencoded'
-        }
-        
-    };
-    console.log('this is options.body:' + options.body)
-    fetch( 'https://jif-futureproof.herokuapp.com/emoji',options)
-        .then(r => r.text())
-        .then(emojiReact)
-        .catch(console.warn)
-};
-
-function emojiReact() {
-    console.log('you have reacted!')
-    const ID = reactions.getAttribute("id")
-    window.localStorage.setItem('id',ID)
-    window.location.href = './specificPost.html'
-    
-    
+module.exports={
+    renderCard,
+    makeCommentAppear,
+    postComment,
+    addNewComment
 }

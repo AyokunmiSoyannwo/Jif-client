@@ -1,24 +1,39 @@
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 const commentBtn = document.querySelector("#btncomment")
-const addComment = document.querySelector("#postBtn")
-const commentTextbox = document.querySelector("#comment")
 const commentForm = document.querySelector("#commentForm")
-const e1Num = document.querySelector('#thumbupCounter')
-const e2Num = document.querySelector('#thumbdownCounter')
-const e3Num = document.querySelector('#heartCounter')
-// const thumbsdown = document.querySelector("thumbsdown")
-// const heart = document.querySelector("heart")
 
+const post_helpers = require('./post_helpers')
 
 
 window.addEventListener("load", (req,res) => {
     ID = window.localStorage.getItem('id')
     fetch(`https://jif-futureproof.herokuapp.com/ipj/${ID}`)
     .then(res => res.json())
-    .then(renderCard)
+    .then(post_helpers.renderCard)
 
 })
 
 
+commentBtn.addEventListener("click", post_helpers.makeCommentAppear)
+
+commentForm.addEventListener('submit', post_helpers.postComment)
+
+
+
+const thumbsup = document.querySelector("#thumbsup")
+thumbsup.addEventListener("click", post_helpers.postThumbsUpEmoji)
+const thumbsdown = document.querySelector("#thumbsdown")
+thumbsdown.addEventListener("click", post_helpers.postThumbsDownEmoji)
+const heart = document.querySelector("#heart")
+heart.addEventListener("click", post_helpers.postHeartEmoji)
+
+},{"./post_helpers":2}],2:[function(require,module,exports){
+const commentBtn = document.querySelector("#btncomment")
+const addComment = document.querySelector("#postBtn")
+const commentTextbox = document.querySelector("#comment")
+const e1Num = document.querySelector('#thumbupCounter')
+const e2Num = document.querySelector('#thumbdownCounter')
+const e3Num = document.querySelector('#heartCounter')
 
 function renderCard (data) {
     const col2 = document.querySelector(".col2")
@@ -94,13 +109,6 @@ function makeCommentAppear(){
     commentBtn.setAttribute("hidden", "hidden")
 }
 
-commentBtn.addEventListener("click", makeCommentAppear)
-
-
-// console.log(window.localStorage.getItem('id'))
-
-commentForm.addEventListener('submit', postComment)
-
 function postComment(e){
     e.preventDefault();
 
@@ -114,10 +122,7 @@ function postComment(e){
         method: 'POST',
         body:JSON.stringify(newComment),
         headers: {
-            // Accept: 'application.json',
             'Content-Type': 'application/json',
-            // 'Content-Length': '34'
-            // 'Content-Type': 'application/x-www-form-urlencoded'
         }
         
     };
@@ -128,7 +133,6 @@ function postComment(e){
         .then(addNewComment)
         .catch(console.warn)
 };
-
 function addNewComment(data){
     const comment = document.createElement("p")
     comment.setAttribute("class", "comments")
@@ -136,21 +140,9 @@ function addNewComment(data){
     comment.textContent = data
     col1.append(comment)
     commentTextbox.value = '';
-    
-
 }
 
-
-// Add an emoji
-const thumbsup = document.querySelector("#thumbsup")
-thumbsup.addEventListener("click", postThumbsUpEmoji)
-const thumbsdown = document.querySelector("#thumbsdown")
-thumbsdown.addEventListener("click", postThumbsDownEmoji)
-const heart = document.querySelector("#heart")
-heart.addEventListener("click", postHeartEmoji)
-
 function postThumbsUpEmoji(e){
-    // e.preventDefault();
     
     console.log('I am running')
 
@@ -163,10 +155,7 @@ function postThumbsUpEmoji(e){
         method: 'POST',
         body:JSON.stringify(newEmoji),
         headers: {
-            // Accept: 'application.json',
             'Content-Type': 'application/json',
-            // 'Content-Length': '34'
-            // 'Content-Type': 'application/x-www-form-urlencoded'
         }
         
     };
@@ -178,7 +167,6 @@ function postThumbsUpEmoji(e){
 };
 
 function postThumbsDownEmoji(e){
-    // e.preventDefault();
     console.log('I am running')
 
     const newEmoji = {
@@ -190,10 +178,7 @@ function postThumbsDownEmoji(e){
         method: 'POST',
         body:JSON.stringify(newEmoji),
         headers: {
-            // Accept: 'application.json',
             'Content-Type': 'application/json',
-            // 'Content-Length': '34'
-            // 'Content-Type': 'application/x-www-form-urlencoded'
         }
         
     };
@@ -203,10 +188,7 @@ function postThumbsDownEmoji(e){
         .then(emojiReact)
         .catch(console.warn)
 };
-
-function postHeartEmoji(e){
-    // e.preventDefault();
-   
+function postHeartEmoji(e){   
     console.log('I am running')
 
     const newEmoji = {
@@ -218,10 +200,7 @@ function postHeartEmoji(e){
         method: 'POST',
         body:JSON.stringify(newEmoji),
         headers: {
-            // Accept: 'application.json',
             'Content-Type': 'application/json',
-            // 'Content-Length': '34'
-            // 'Content-Type': 'application/x-www-form-urlencoded'
         }
         
     };
@@ -235,6 +214,15 @@ function postHeartEmoji(e){
 function emojiReact() {
     console.log('you have reacted!')
     window.location.href = './specificPost.html'
-    
-    
 }
+
+module.exports = {
+    renderCard,
+    makeCommentAppear,
+    postComment,
+    postThumbsUpEmoji,
+    postThumbsDownEmoji,
+    postHeartEmoji
+}
+
+},{}]},{},[1]);
